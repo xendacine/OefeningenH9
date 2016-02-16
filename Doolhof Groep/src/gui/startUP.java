@@ -3,13 +3,13 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package domein;
+package gui;
 
 /**
  *
  * @author xendacine
  */
-public class DomeinController 
+public class startUP 
 {
     
 }
