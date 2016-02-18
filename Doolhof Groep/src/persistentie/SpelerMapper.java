@@ -6,6 +6,13 @@
 package persistentie;
 
 import domein.Speler;
+import java.math.BigDecimal;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -17,9 +24,21 @@ public class SpelerMapper {
     
     public List<Speler> geefSpelers(){
           List<Speler> spelerlijst = new ArrayList<>();
-          String speler1 = "speler1";
-          Speler gevondenSpeler = new Speler(speler1);
-          spelerlijst.add(gevondenSpeler);
-          return spelerlijst;
- }
+           try (Connection conn = DriverManager.getConnection(Connectie.JDBC_URL)) {
+            PreparedStatement query = conn.prepareStatement("SELECT * FROM speler");
+            try (ResultSet rs = query.executeQuery()) {
+                while (rs.next()) {
+                    String naam = rs.getString("naam");
+                    
+
+                    spelerlijst.add(new Speler(naam));
+                }
+            }
+        } catch (SQLException ex) {
+            throw new RuntimeException(ex);
+        }
+
+        return spelerlijst;
+    }
+ 
 }
