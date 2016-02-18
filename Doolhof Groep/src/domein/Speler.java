@@ -9,24 +9,26 @@ package domein;
  *
  * @author Sven V
  */
-public final class Spel {
-    private String spelnaam;
+public final class Speler {
+    private String naam;
     
     
-    public Spel(String spelnaam){
+    public Speler(String naam){
         
-        setSpelnaam(spelnaam);
+        setSpelernaam(naam);
         
         
     }
     
-     public String getSpelnaam() {
-        return spelnaam;
+     public String getSpelernaam() {
+        return naam;
     }
 
-    public void setSpelnaam(String spelnaam) {
-        this.spelnaam = spelnaam;
+    public void setSpelernaam(String naam) {
+        this.naam = naam;
     }
     
     
 }
+    
+
