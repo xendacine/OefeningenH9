@@ -6,6 +6,7 @@
 package ui;
 
 import domein.DomeinController;
+import domein.Taal;
 
 /**
  *
@@ -15,6 +16,8 @@ public class StartUp {
     
     public static void main(String[] args) 
 	{	
-		new DoolhofApp(new DomeinController());
+                DomeinController dc = new DomeinController();
+                Taal taal = new Taal();
+                DoolhofApp da = new DoolhofApp(dc,taal);
 	}
 }
