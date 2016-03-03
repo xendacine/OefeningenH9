@@ -5,8 +5,9 @@
  */
 package ui;
 import domein.DomeinController;
+import domein.Taal;
 import java.util.InputMismatchException;
-import java.util.Locale;
+
 import java.util.ResourceBundle;
 import java.util.Scanner;
 /**
@@ -17,15 +18,18 @@ public class DoolhofApp {
 
    private DomeinController dc;
    private UC1 uc1;
-   String taal;
+   private UC2 uc2;
+   private int ingave = 0;
    ResourceBundle tekst;   
    private Scanner scanner = new Scanner(System.in);
+   private Taal taal;
    
-   public DoolhofApp(DomeinController dc) throws InputMismatchException, IllegalArgumentException {
+   public DoolhofApp(DomeinController dc, Taal taal) throws InputMismatchException, IllegalArgumentException {
      this.dc = dc;
+     this.taal = taal;
+     this.uc1 = new UC1(dc, this, taal, uc2);
+     this.uc2 = new UC2(dc, this, taal);
      kiesTaal();
-     this.uc1 = new UC1(dc, this, taal);
-     
      int keuze;
      
       do {
@@ -45,13 +49,13 @@ public class DoolhofApp {
  }
       
    private int geefKeuze() {
-        int ingave;
+        
 
         try {
-            System.out.println(tekst.getString("doolhof"));
+            System.out.println(taal.getTekst().getString("doolhof"));
            
-            System.out.println(tekst.getString("startSpel"));
-            System.out.println(tekst.getString("stop"));
+            System.out.println(taal.getTekst().getString("startSpel"));
+            System.out.println(taal.getTekst().getString("stop"));
 
            
             ingave = scanner.nextInt();
@@ -63,42 +67,41 @@ public class DoolhofApp {
    }
    
    private void kiesTaal() {
+       
+       
+		boolean controle_taal = false;
+    	do 
+    	{
+    		try
+    		{
+    			System.out.printf(	"\n%-40s\t%-40s\t%-40s\n%-40s\t%-40s\t%-40s\n" +
+						  			"%-40s\t%-40s\t%-40s\n",
+						  			"Welkom bij het spel Betoverde Doolhof!",   "Bienvenu au Labyrinthe Enchanté!",
+						  			"Welcome at the game Enchanted Maze!",   "---------------------------",
+						  			"---------------------------", "---------------------------",
+						  			"Kies uw taal (1)", 			  "Choissisez votre langue (2)",
+    								"Choose your language (3)"); 
+    								ingave = scanner.nextInt();
+    								dc.kiesTaal(ingave);
+		
+    								controle_taal = true;
+                                                                
+    		}
+    		catch(InputMismatchException imme)/* Controle op letters */
+    		{
+    			System.out.printf("%-40s\t%-40s\t%-40s\n", "Gelieve een geldige keuze in te geven!",
+    							  "Veuillez entrez un choix valable!", "Please enter a valid choice!");
+    			scanner.nextLine();
+    		}
+    		catch(IllegalArgumentException iae)/* Controle op selectie */
+    		{
+    			System.out.println(iae.getMessage());
+    			scanner.nextLine();
+    		}
+                    /* Controle op selectie */
+    	}
+    	while(!controle_taal);
+	}
 
-        int ingave = 0;
-        boolean ongeldigeIngave = false;
-        do {
-            
-            try {
-                
-                System.out.println("1. Press 1 for English.");
-                System.out.println("2. Tapes 2 pour français");
-                System.out.println("3. Druk op 3 voor Nederlands.");
-                System.out.print("[1-3]: ");
-                ingave = scanner.nextInt();
-                if (ingave < 1 || ingave > 3) {
-                    System.out.println("\nEnter a valid value (1-3)\nEntrer une valeur valide (1-3)\nVul een geldige waarde in (1-3)");
-                } else {
-                    ongeldigeIngave = true;
-                }
-            } catch (InputMismatchException im) {
-                System.out.println("\nEnter a valid value (1-3)\nEntrer une valeur valide (1-3)\nVul een geldige waarde in (1-3)");
-                scanner.nextLine();
-            }
-        } while (ongeldigeIngave != true);
-        if (ingave == 1) {
-            taal = "en";
-        }
-        if (ingave == 2) {
-            taal = "fr";
-        }
-        if (ingave == 3) {
-            taal = "nl";
-        }
-        if (ingave < 1 || ingave > 3) {
-            kiesTaal();
-        }
-       Locale currentLocale;
-       currentLocale = new Locale(taal);
-       tekst = ResourceBundle.getBundle("resourcebundles.Resource", currentLocale);
-}
+
 }
