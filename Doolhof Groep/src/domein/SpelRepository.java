@@ -24,7 +24,7 @@ public class SpelRepository {
     }
     
  
-    public List<Spel> geefSpellen(){
+    public List<Spel> laadBestaandSpel(){
         return mapper.geefSpellen();
     }
     public Spel getSpel(String spelnaam)

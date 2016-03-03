@@ -24,7 +24,7 @@ public class SpelerRepository {
         speler = new ArrayList<>();
     }
     
-    public List<Speler> geefSpelers(){
-        return mapper.geefSpelers();
+    public List<Speler> geefSpelers(int spelID){
+        return mapper.geefSpelers(spelID);
     }
 }
