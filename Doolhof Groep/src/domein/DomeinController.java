@@ -26,9 +26,7 @@ public class DomeinController {
         spelerRepo = new SpelerRepository();
     }
     
-   public void startNieuwSpel(String spelnaam){
-   
-   }
+  
    
    public String[] laadBestaandSpel() {
         int count = 0;

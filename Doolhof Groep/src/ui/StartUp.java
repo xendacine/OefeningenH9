@@ -18,6 +18,6 @@ public class StartUp {
 	{	
                 DomeinController dc = new DomeinController();
                 Taal taal = new Taal();
-                DoolhofApp da = new DoolhofApp(dc,taal);
+                DoolhofApp app = new DoolhofApp(dc,taal);
 	}
 }

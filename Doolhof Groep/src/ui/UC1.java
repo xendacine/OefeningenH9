@@ -8,34 +8,31 @@ package ui;
 import domein.DomeinController;
 import domein.Taal;
 import java.util.InputMismatchException;
-
 import java.util.ResourceBundle;
 import java.util.Scanner;
-
+import ui.UC2;
 /**
  *
  * @author Sven V
  */
 public class UC1 {
     private final DomeinController dc;
-     private final DoolhofApp app;
+    private final DoolhofApp app;
      private Taal taal;
      ResourceBundle tekst;   
      private final Scanner scanner;
     private String[] spellen;
     private String[] spelers;
-    private UC2 uc2;
     
-     public UC1(DomeinController dc, DoolhofApp app, Taal taal, UC2 uc2)
+    
+     public UC1(DomeinController dc,DoolhofApp app, Taal taal)
     {
         this.scanner = new Scanner(System.in);
         this.dc = dc;
         this.app = app;
         this.taal = taal;
-        this.uc2 = uc2;
-        /*Locale currentLocale;
-        currentLocale = new Locale(taal);
-        tekst = ResourceBundle.getBundle(".Resource", new Locale(taal));*/
+        
+        
     }
      
      public void startSpel(){
@@ -45,10 +42,11 @@ public class UC1 {
             keuze = geefKeuze();
             switch (keuze) {
                 case 1:
-                   uc2.startNieuwSpel();
+                    app.uc2.startNieuwSpel();
                     break;
                 case 2:
                    laadBestaandSpel();
+                    break;
                 case 3:
                     System.exit(0);
            }
@@ -131,6 +129,8 @@ public class UC1 {
            
     }
   }
+  
+  
   
   
     

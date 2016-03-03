@@ -18,7 +18,7 @@ public class DoolhofApp {
 
    private DomeinController dc;
    private UC1 uc1;
-   private UC2 uc2;
+   UC2 uc2;
    private int ingave = 0;
    ResourceBundle tekst;   
    private Scanner scanner = new Scanner(System.in);
@@ -27,9 +27,10 @@ public class DoolhofApp {
    public DoolhofApp(DomeinController dc, Taal taal) throws InputMismatchException, IllegalArgumentException {
      this.dc = dc;
      this.taal = taal;
-     this.uc1 = new UC1(dc, this, taal, uc2);
-     this.uc2 = new UC2(dc, this, taal);
      kiesTaal();
+     this.uc1 = new UC1(dc,this, taal);
+     this.uc2 = new UC2(dc,this, taal);
+     
      int keuze;
      
       do {
@@ -82,7 +83,7 @@ public class DoolhofApp {
 						  			"Kies uw taal (1)", 			  "Choissisez votre langue (2)",
     								"Choose your language (3)"); 
     								ingave = scanner.nextInt();
-    								dc.kiesTaal(ingave);
+    								taal.kiesTaal(ingave);
 		
     								controle_taal = true;
                                                                 

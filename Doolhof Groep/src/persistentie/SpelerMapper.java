@@ -22,10 +22,11 @@ import java.util.List;
  */
 public class SpelerMapper {
     
-    public List<Speler> geefSpelers(){
+    public List<Speler> geefSpelers(int spelID){
           List<Speler> spelerlijst = new ArrayList<>();
            try (Connection conn = DriverManager.getConnection(Connectie.JDBC_URL)) {
-            PreparedStatement query = conn.prepareStatement("SELECT * FROM speler");
+            PreparedStatement query = conn.prepareStatement("SELECT naam FROM speler WHERE spelID = ?");
+            query.setInt(1, spelID);
             try (ResultSet rs = query.executeQuery()) {
                 while (rs.next()) {
                     String naam = rs.getString("naam");
