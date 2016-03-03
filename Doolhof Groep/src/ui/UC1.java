@@ -6,8 +6,9 @@
 package ui;
 
 import domein.DomeinController;
+import domein.Taal;
 import java.util.InputMismatchException;
-import java.util.Locale;
+
 import java.util.ResourceBundle;
 import java.util.Scanner;
 
@@ -18,22 +19,23 @@ import java.util.Scanner;
 public class UC1 {
     private final DomeinController dc;
      private final DoolhofApp app;
-     String taal;
+     private Taal taal;
      ResourceBundle tekst;   
      private final Scanner scanner;
     private String[] spellen;
     private String[] spelers;
+    private UC2 uc2;
     
-    
-     public UC1(DomeinController dc, DoolhofApp app,String taal)
+     public UC1(DomeinController dc, DoolhofApp app, Taal taal, UC2 uc2)
     {
         this.scanner = new Scanner(System.in);
         this.dc = dc;
         this.app = app;
         this.taal = taal;
-        Locale currentLocale;
+        this.uc2 = uc2;
+        /*Locale currentLocale;
         currentLocale = new Locale(taal);
-        tekst = ResourceBundle.getBundle("resourcebundles.Resource", currentLocale);
+        tekst = ResourceBundle.getBundle(".Resource", new Locale(taal));*/
     }
      
      public void startSpel(){
@@ -43,7 +45,7 @@ public class UC1 {
             keuze = geefKeuze();
             switch (keuze) {
                 case 1:
-                   startNieuwSpel();
+                   uc2.startNieuwSpel();
                     break;
                 case 2:
                    laadBestaandSpel();
@@ -60,11 +62,11 @@ public class UC1 {
         int ingave;
 
         try {
-            System.out.println(tekst.getString("doolhof"));
+            System.out.println(taal.getTekst().getString("doolhof"));
            
-            System.out.println(tekst.getString("startNieuwSpel"));
-            System.out.println(tekst.getString("startBestaandSpel"));
-            System.out.println(tekst.getString("stop2"));
+            System.out.println(taal.getTekst().getString("startNieuwSpel"));
+            System.out.println(taal.getTekst().getString("startBestaandSpel"));
+            System.out.println(taal.getTekst().getString("stop2"));
 
            
             ingave = scanner.nextInt();
@@ -75,24 +77,18 @@ public class UC1 {
         return ingave;
    }
       
-  public void startNieuwSpel(){
-      String spelNaam;
-      
-      System.out.println(tekst.getString("spelNaam"));
-      spelNaam = scanner.next();
-    // uc2.startNieuwSpel(spelNaam);
-  }   
+ 
   
   public String laadBestaandSpel(){
         
 
-        spellen = dc.getSpellen();
+        spellen = dc.laadBestaandSpel();
         String gekozen;
         if (spellen.length == 0) {
-            System.out.println("Er zijn geen opgeslagen spellen");
+            System.out.println(taal.getTekst().getString("geenGames"));
             gekozen = "geen";
         } else {
-            System.out.println("De mogelijke spellen zijn :");
+            System.out.println(taal.getTekst().getString("mogelijkeGames"));
             for (int i = 0; i < spellen.length; i++) {
                 int count = i + 1;
                 System.out.println(count + ". " + spellen[i]);
@@ -104,29 +100,29 @@ public class UC1 {
     }
   
   public String keuzeSpel(String[] spellen) {
-        System.out.println("kies een spel: 1-" + spellen.length);
-        int keuze;
-        int[] aantal;
+        System.out.println(taal.getTekst().getString("kiesSpel") + spellen.length);
+        int spelID;
+        
         String gekozen = null;
-        keuze = scanner.nextInt();
-        if (keuze >= 1 && keuze <= spellen.length) {
-            gekozen = spellen[keuze - 1];
+        spelID = scanner.nextInt();
+        if (spelID >= 1 && spelID <= spellen.length) {
+            gekozen = spellen[spelID - 1];
 
         } else {
             keuzeSpel(spellen);
         }
-        geefSpelers();
+        geefSpelers(spelID);
         return gekozen;
     }
   
-  public void geefSpelers(){
-        spelers = dc.getSpelers();
+  public void geefSpelers(int spelID){
+        spelers = dc.getSpelers(spelID);
  
         if (spelers.length == 0) {
-            System.out.println("Er zijn geen spelers");
+            System.out.println(taal.getTekst().getString("geenSpelers"));
             
         } else {
-            System.out.println("De spelers zijn :");
+            System.out.println(taal.getTekst().getString("spelers"));
             for (int i = 0; i < spelers.length; i++) {
                 int count = i + 1;
                 System.out.println(count + ". " + spelers[i]);
