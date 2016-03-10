@@ -5,19 +5,25 @@
  */
 package domein;
 
+import java.util.List;
+
 /**
  *
  * @author Sven V
  */
 public final class Spel {
     private String spelnaam;
-    
-    
+    private List<Speler> spelers;
+    private Spelbord bord;
     public Spel(String spelnaam){
         
         setSpelnaam(spelnaam);
         
         
+    }
+    public Spel(Spelbord bord, List<Speler> spelerlijst ){
+                this.bord = bord;
+                this.spelers = spelerlijst;
     }
     
      public String getSpelnaam() {

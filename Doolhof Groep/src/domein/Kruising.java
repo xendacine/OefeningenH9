@@ -9,6 +9,10 @@ package domein;
  *
  * @author Sven V
  */
-public class Vak {
+public class Kruising extends Gangkaart{
+
+    public Kruising(int draaihoek, int xPositie, int yPositie, char schat) {
+        super(draaihoek, xPositie, yPositie, schat);
+    }
     
 }

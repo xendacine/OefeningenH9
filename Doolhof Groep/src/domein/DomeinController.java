@@ -19,6 +19,7 @@ public class DomeinController {
     private List<Spel> spelLijst;
     private List<Speler> spelerlijst;
     private Taal taal;
+    private Spelbord spelbord;
     public DomeinController() {
         
     
@@ -46,19 +47,35 @@ public class DomeinController {
    public String[] getSpelers(int spelID) {
        int count = 0 ;
        spelerlijst = spelerRepo.geefSpelers(spelID);
-        String[] spellen = new String[spelerlijst.size()];
+        String[] spelers = new String[spelerlijst.size()];
         Iterator<Speler> spelerIterator = spelerlijst.iterator();
         while (spelerIterator.hasNext()) {
             Speler gevondenSpeler = spelerIterator.next();
             String spelnaam = gevondenSpeler.getSpelernaam();
-            spellen[count] = spelnaam;
+            spelers[count] = spelnaam;
             count++;
         }
-        return spellen;
+        return spelers;
    }
    
    public void kiesTaal(int ingave){
        taal.kiesTaal(ingave);  
                }
+   
+   public void maakSpelbord(){
+       spelbord.maakSpelbord();
+   }
+   public void wenstSpelAanTemaken(){
+       spel = new Spel(spelbord,spelerlijst);
+   }
+   public void stelAantalSpelersIn(int aantal)
+	{
+		spelerRepo.setAantalSpelers(aantal);
+	}
+   
+   public void maakSpeler(String naam) 
+	{
+		spelerRepo.maakSpeler(naam);
+	}
    
 }

@@ -10,11 +10,11 @@ package domein;
  * @author Sven V
  */
 public class Spelbord {
-    private Vak[][] bord;
+    private Gangkaart[][] bord;
     private String naam;
     
-    public Spelbord(Vak[][] vakken) {
-        this.bord = vakken;
+    public Spelbord(Gangkaart[][] kaarten) {
+        this.bord = kaarten;
 
     }
     
@@ -27,19 +27,47 @@ public class Spelbord {
 
 
 
-    public Vak[][] getBord() {
+    public Gangkaart[][] getBord() {
         return bord;
     }
-    public Vak[][] getVakken() {
+    public Gangkaart[][] getGangkaart() {
         return bord;
     }
 
-    public void setVakken(Vak[][] vakken) {
-        this.bord = vakken;
+    public void setGangkaarten(Gangkaart[][] kaarten) {
+        this.bord = kaarten;
     }
 
 
-    public void setBord(Vak[][] bord) {
+    public void setBord(Gangkaart[][] bord) {
         this.bord = bord;
     }
+    
+    public void maakSpelbord(){
+         String[][] bord1 = new String[7][7];
+      
+      int x = 0;
+        while (x < 7) {
+            int y = 0;
+            while (y < 7) {
+                if(x == 0 && y==0 || x==6 && y==0 || x==0 && y==6 || x==6 && y==6){
+                      bord1[x][y] = "hoekpunt";}
+                
+                else if(x%2 == 0 & y%2 ==0){
+                   bord1[x][y] = "Tpunt";
+                    
+                }
+                
+                else{
+                    bord1[x][y] ="leeg";}
+                     y++;
+                }
+                
+                 x++;
+               
+            }
+
+          
+        }
+    
 }

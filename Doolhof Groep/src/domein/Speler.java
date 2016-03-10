@@ -11,14 +11,21 @@ package domein;
  */
 public final class Speler {
     private String naam;
+    private int geboortejaar;
+    private String kleur;
     
     
     public Speler(String naam){
+        setSpelernaam(naam);
+    }
+    
+    public Speler(String naam, int geboortejaar, String kleur){
         
         setSpelernaam(naam);
-        
-        
+        setSpelerKleur(kleur);
+        setSpelerGeboortejaar(geboortejaar);
     }
+    
     
      public String getSpelernaam() {
         return naam;
@@ -27,7 +34,22 @@ public final class Speler {
     public void setSpelernaam(String naam) {
         this.naam = naam;
     }
-    
+    public int getSpelerGeboortejaar() {
+        return geboortejaar;
+    }
+
+    public void setSpelerGeboortejaar(int geboortejaar) {
+        this.geboortejaar = geboortejaar;
+    }
+   
+
+    public String getSpelerKleur() {
+        return kleur;
+    }
+
+    public void setSpelerKleur(String kleur) {
+        this.kleur = kleur;
+    }
     
 }
     
