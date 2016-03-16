@@ -12,6 +12,8 @@ package domein;
 public class Hoek extends Gangkaart {
   private String kleur;
 
+    
+
     public String getKleur() {
         return kleur;
     }
@@ -19,8 +21,18 @@ public class Hoek extends Gangkaart {
     public void setKleur(String kleur) {
         this.kleur = kleur;
     }
-    public Hoek(int draaihoek, int xPositie, int yPositie, char schat) {
+    public Hoek(int draaihoek, int xPositie, int yPositie, char schat, String kleur) {
         super(draaihoek, xPositie, yPositie, schat);
+        this.kleur = kleur;
+    }
+    public Hoek(int draaihoek, int xPositie, int yPositie){
+        super(draaihoek, xPositie, yPositie);
+    }
+    @Override
+    public String toString()
+    {
+        
+        return "Hoekpunt"+getKleur();
     }
     
 }

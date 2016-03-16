@@ -5,15 +5,23 @@
  */
 package domein;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  *
  * @author Sven V
  */
 public class Spelbord {
-    private Gangkaart[][] bord;
+    private String[][] bord;
     private String naam;
+    private char[] schatlijst;
+    private DoelKaart doelkaart;
+    private Gangkaart[] gangkaarten;
     
-    public Spelbord(Gangkaart[][] kaarten) {
+    
+    
+    public Spelbord(String[][] kaarten) {
         this.bord = kaarten;
 
     }
@@ -27,47 +35,35 @@ public class Spelbord {
 
 
 
-    public Gangkaart[][] getBord() {
+    public String[][] getBord() {
         return bord;
     }
-    public Gangkaart[][] getGangkaart() {
+     public String[][] getVakken() {
         return bord;
     }
 
-    public void setGangkaarten(Gangkaart[][] kaarten) {
-        this.bord = kaarten;
+    public void setVakken(String[][] vakken) {
+        this.bord = vakken;
     }
+   
 
 
-    public void setBord(Gangkaart[][] bord) {
+    public void setBord(String[][] bord) {
         this.bord = bord;
     }
     
-    public void maakSpelbord(){
-         String[][] bord1 = new String[7][7];
-      
-      int x = 0;
-        while (x < 7) {
-            int y = 0;
-            while (y < 7) {
-                if(x == 0 && y==0 || x==6 && y==0 || x==0 && y==6 || x==6 && y==6){
-                      bord1[x][y] = "hoekpunt";}
-                
-                else if(x%2 == 0 & y%2 ==0){
-                   bord1[x][y] = "Tpunt";
-                    
-                }
-                
-                else{
-                    bord1[x][y] ="leeg";}
-                     y++;
-                }
-                
-                 x++;
-               
-            }
-
-          
-        }
     
-}
+    
+    
+    
+   
+               
+          public String[][] toonSpelbord() 
+	{
+		String[][] bord1 = getBord();
+                return bord1; 
+	}	
+        
+    }
+    
+    

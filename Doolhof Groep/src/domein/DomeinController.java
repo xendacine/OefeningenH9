@@ -62,20 +62,22 @@ public class DomeinController {
        taal.kiesTaal(ingave);  
                }
    
-   public void maakSpelbord(){
-       spelbord.maakSpelbord();
-   }
+  
    public void wenstSpelAanTemaken(){
        spel = new Spel(spelbord,spelerlijst);
+       
+   }
+   public String[][] maakSpelbord(){
+      return  spel.maakSpelbord();
    }
    public void stelAantalSpelersIn(int aantal)
 	{
 		spelerRepo.setAantalSpelers(aantal);
 	}
    
-   public void maakSpeler(String naam) 
+   public void maakSpeler(String naam,int geboortejaar, String kleur) 
 	{
-		spelerRepo.maakSpeler(naam);
+		spelerRepo.maakSpeler(naam,geboortejaar,kleur);
 	}
-   
+  
 }

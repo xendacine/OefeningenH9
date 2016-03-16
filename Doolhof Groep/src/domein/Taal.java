@@ -20,11 +20,11 @@ public class Taal {
 		switch(ingave) 
 		{
 			case 1: tekst = ResourceBundle.getBundle
-					("resourceBundles.Resource", new Locale("nl")); break;
+					("resourcebundles.Resource", new Locale("nl")); break;
 			case 2: tekst = ResourceBundle.getBundle
-					("resourceBundles.Resource", new Locale("fr")); break;
+					("resourcebundles.Resource", new Locale("fr")); break;
 			case 3: tekst = ResourceBundle.getBundle
-					("resourceBundles.Resource", new Locale("en")); break;
+					("resourcebundles.Resource", new Locale("en")); break;
 			default: throw new IllegalArgumentException
 					("Gelieve een geldige keuze in te geven!		" +
 					 "Veuillez entrez un choix valable!		" +

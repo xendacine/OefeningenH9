@@ -22,6 +22,11 @@ public abstract class Gangkaart {
         this.yPositie = yPositie;
         this.schat = schat;
     }
+    public Gangkaart(int draaihoek,int xPositie, int yPositie){
+        this.draaihoek = draaihoek;
+        this.xPositie = xPositie;
+        this.yPositie = yPositie;
+    }
     public int getDraaihoek() {
         return draaihoek;
     }
@@ -55,11 +60,6 @@ public abstract class Gangkaart {
     }
     
     
-    @Override
-    public String toString()
-    {
-        return "";
-    }
     
     
 }
