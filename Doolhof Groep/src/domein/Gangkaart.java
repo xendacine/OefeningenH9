@@ -13,7 +13,7 @@ public abstract class Gangkaart {
     private int draaihoek;
     private int xPositie;
     private int yPositie;
-    private char schat;
+    public char schat;
     
     
     public Gangkaart(int draaihoek, int xPositie, int yPositie, char schat){
