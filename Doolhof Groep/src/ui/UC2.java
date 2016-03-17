@@ -120,10 +120,28 @@ public class UC2 {
           System.out.println("Geef de kleur in van speler"+(i+1)+"(rood, geel, groen, blauw):");
           String kleur1= scanner.next();
           
-          if((!kleur1.equals("blauw"))||(!kleur1.equals("rood"))||(!kleur1.equals("groen"))||(!kleur1.equals("geel"))){
+          if((!kleur1.equals("blauw"))){
+              if((!kleur1.equals("rood"))){
+                  if((!kleur1.equals("groen"))){
+                      if((!kleur1.equals("geel"))){
+            System.out.println("Kies een juiste kleur!");
+                           kleur1 = geefKleur(i);
+                      }
+                  }
+              }
+         }
+         /* else if((!kleur1.equals("rood"))){
             System.out.println("Kies een juiste kleur!");
                            kleur1 = geefKleur(i);
          }
+          if((!kleur1.equals("groen"))){
+            System.out.println("Kies een juiste kleur!");
+                           kleur1 = geefKleur(i);
+         }
+          if((!kleur1.equals("geel"))){
+            System.out.println("Kies een juiste kleur!");
+                           kleur1 = geefKleur(i);
+         }*/
            
             return kleur1;
       }

@@ -43,7 +43,8 @@ public final class Spel {
       
      gangkaarten.add(new Hoek(0,0,0,'a',"geel"));
      gangkaarten.add(new Hoek(0,6,0,'b',"blauw")); 
-     
+     gangkaarten.add(new Hoek(0,0,6,'c',"rood"));
+     gangkaarten.add(new Hoek(0,6,6,'d',"groen"));
        int x = 0;
         while (x < 7) {
             int y = 0;
@@ -55,17 +56,17 @@ public final class Spel {
                                   
                }
                else if(x==6 && y==0){
-                   bord1[x][y] = new Hoek(0,x,y,'a',"blauw").toString();
-                                   gangkaarten.add(new Hoek(0,x,y,'b',"blauw"));
+                   bord1[x][y] = gangkaarten.get(1).toString();
+                                  // gangkaarten.add(new Hoek(0,x,y,'b',"blauw"));
                }
                 else if(x==0 && y==6){
-                   bord1[x][y] = new Hoek(0,x,y,'a',"rood").toString();
-                                   gangkaarten.add(new Hoek(0,x,y,'c',"rood"));
+                   bord1[x][y] = gangkaarten.get(2).toString();
+                                   //gangkaarten.add(new Hoek(0,x,y,'c',"rood"));
                                    
                }
                  else if(x==6 && y==6){
-                   bord1[x][y] = new Hoek(0,x,y,'a',"groen").toString();
-                                   gangkaarten.add(new Hoek(0,x,y,'d',"groen"));
+                   bord1[x][y] = gangkaarten.get(3).toString();
+                                   
                }
                else if(x%2 == 0 & y%2 ==0){
                                 bord1[x][y] = "Tpunt";
