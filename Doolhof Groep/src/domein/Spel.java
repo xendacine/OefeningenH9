@@ -53,7 +53,8 @@ public final class Spel {
 //                    String schat = schatLijst[randomNumber];
                     char[] schatLijst = {'a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z'};
                     char schat = schatLijst[randomNumber];
-                    bord2[v][w] = new Kruising(draaihoek, v, w, schat);
+                    bord2[v][w] = new Kruising(draaihoek, v, w, schat);   // fix even dit zodat dit werkt ty 
+                   
                 }
                 else if(((v%2 == 1 && w%2==1))) {
 //                    bord2[v][w] = gangkaarten2.get(3).toString();
