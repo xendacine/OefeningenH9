@@ -16,8 +16,8 @@ public class Kruising extends Gangkaart{
 
     Kruising(int draaihoek, int xPositie, int yPositie, char schat) {
         super(draaihoek, xPositie, yPositie, schat);
-        schat = getSchat();
-        draaihoek = 0 +(int)(Math.random() * ((3 - 0) + 1));
+        
+        
     }
     @Override
     public char getSchat()
