@@ -49,11 +49,9 @@ public final class Spel {
                 {
                     int draaihoek = 0 +(int)(Math.random() * ((3 - 0) + 1));
                     int randomNumber = 0 + (int)(Math.random() * ((23 - 0) + 1));
-//                    String[] schatLijst = {"a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"};
-//                    String schat = schatLijst[randomNumber];
                     char[] schatLijst = {'a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z'};
                     char schat = schatLijst[randomNumber];
-                    bord2[v][w] = new Kruising(draaihoek, v, w, schat);   // fix even dit zodat dit werkt ty 
+                    bord2[v][w] = new Kruising(draaihoek, v, w, schat).toString();
                    
                 }
                 else if(((v%2 == 1 && w%2==1))) {
@@ -112,7 +110,7 @@ public final class Spel {
                  x++;
                
             }
-              return bord2; // OPGELET MOET BORD 1 ZIJN VOOR METHODE NORMAAL TE LATEN LOPEN MAAR STAAT MOMENTEEL OP BORD2 VOOR ANDERE ARRAY TE TESTEN
+              return bord1; // OPGELET MOET BORD 1 ZIJN VOOR METHODE NORMAAL TE LATEN LOPEN MAAR STAAT MOMENTEEL OP BORD2 VOOR ANDERE ARRAY TE TESTEN
               
               
             }
