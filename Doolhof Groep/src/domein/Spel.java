@@ -37,15 +37,45 @@ public final class Spel {
     }
      public String[][] maakSpelbord(){
        
-      String[][] bord1 = new String[7][7];
+     //dit is een testdeel tot volgende comment om te zien hoe je die array moet aanmaken
+        
+     String[][] bord2 = new String[7][7];         
+     int v = 0;
+        while (v < 7) {
+            int w = 0;
+            while (w < 7) {
+                
+                if (((w%2 == 1 || v%2 == 1) && (v%2 != w%2))) 
+                {
+                    int draaihoek = 0 +(int)(Math.random() * ((3 - 0) + 1));
+                    int randomNumber = 0 + (int)(Math.random() * ((23 - 0) + 1));
+//                    String[] schatLijst = {"a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"};
+//                    String schat = schatLijst[randomNumber];
+                    char[] schatLijst = {'a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z'};
+                    char schat = schatLijst[randomNumber];
+                    bord2[v][w] = new Kruising(draaihoek, v, w, schat);
+                }
+                else if(((v%2 == 1 && w%2==1))) {
+//                    bord2[v][w] = gangkaarten2.get(3).toString();
+                    
+                }
+                else{
+                    bord2[v][w] = "leeg";}
+                    w++;
+                }
+                    v++;
+            }
+        
+        //tot hier om te testen hoe je dat moet doen voor die losse array aan te maken 
+        String[][] bord1 = new String[7][7];
       
-      List<Gangkaart> gangkaarten = new ArrayList<>();
+        List<Gangkaart> gangkaarten = new ArrayList<>();
       
-     gangkaarten.add(new Hoek(0,0,0,'a',"geel"));
-     gangkaarten.add(new Hoek(0,6,0,'b',"blauw")); 
-     gangkaarten.add(new Hoek(0,0,6,'c',"rood"));
-     gangkaarten.add(new Hoek(0,6,6,'d',"groen"));
-       int x = 0;
+        gangkaarten.add(new Hoek(0,0,0,'a',"geel"));
+        gangkaarten.add(new Hoek(0,6,0,'b',"blauw")); 
+        gangkaarten.add(new Hoek(0,0,6,'c',"rood"));
+        gangkaarten.add(new Hoek(0,6,6,'d',"groen"));
+        int x = 0;
         while (x < 7) {
             int y = 0;
             while (y < 7) {
@@ -81,11 +111,43 @@ public final class Spel {
                  x++;
                
             }
-              return bord1;
+              return bord2; // OPGELET MOET BORD 1 ZIJN VOOR METHODE NORMAAL TE LATEN LOPEN MAAR STAAT MOMENTEEL OP BORD2 VOOR ANDERE ARRAY TE TESTEN
+              
+              
             }
-     
-    
-    
-    
-    
-}
+}           // gelive even af te blijven ty heb dit zeker en vast nog nodig! 
+//    // poging voor de variable hoeken
+//     public String[][] maakVariableKaarten()
+//     {
+//         String[][] bord2 = new String[7][7];
+//         
+//         List<Gangkaart> gangkaarten = new ArrayList<>();
+//         gangkaarten.add(new Hoek(0,0,0,'a',"geel"));
+//         gangkaarten.add(new Hoek(0,6,0,'b',"blauw")); 
+//         gangkaarten.add(new Hoek(0,0,6,'c',"rood"));
+//         gangkaarten.add(new Hoek(0,6,6,'d',"groen"));
+//     int v = 0;
+//        while (v < 7) {
+//            int w = 0;
+//            while (w < 7) {
+//                
+//                if (((w%2 == 1 || v%2 == 1) && (v%2 != w%2))) 
+//                {
+//                    bord2[v][w] = gangkaarten.get(1).toString();
+//                }
+//                else if(((v%2 == 1 && w%2==1))) {
+//                    bord2[v][w] = gangkaarten.get(2).toString();
+//                    
+//                }
+//                else{
+//                    bord2[v][w] = "leeg";}
+//                    w++;
+//                }
+//                    v++;
+//            }
+//        return bord2;
+//        }
+//     }
+//    
+//    
+
