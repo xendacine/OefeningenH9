@@ -29,7 +29,7 @@ public class Kruising extends Gangkaart{
     }
     @Override
     public String toString()
-    {
-        return "Kruising"+getSchat();
+    {   
+        return "Kruising";
     }
 }

@@ -25,9 +25,14 @@ public class Hoek extends Gangkaart {
         super(draaihoek, xPositie, yPositie, schat);
         this.kleur = kleur;
     }
+    public Hoek(int draaihoek, int xPositie, int yPositie, String kleur){
+        super(draaihoek, xPositie, yPositie);
+        setKleur(kleur);
+    }
     public Hoek(int draaihoek, int xPositie, int yPositie){
         super(draaihoek, xPositie, yPositie);
     }
+    
     @Override
     public String toString()
     {

@@ -39,7 +39,7 @@ public final class Spel {
        
      //dit is een testdeel tot volgende comment om te zien hoe je die array moet aanmaken
         
-     String[][] bord2 = new String[7][7];         
+    /* String[][] bord2 = new String[7][7];         
      int v = 0;
         while (v < 7) {
             int w = 0;
@@ -51,7 +51,7 @@ public final class Spel {
                     int randomNumber = 0 + (int)(Math.random() * ((23 - 0) + 1));
                     char[] schatLijst = {'a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z'};
                     char schat = schatLijst[randomNumber];
-                    bord2[v][w] = new Kruising(draaihoek, v, w, schat).toString();
+                    /*bord2[v][w] = new Kruising(draaihoek, v, w, schat).toString();
                    
                 }
                 else if(((v%2 == 1 && w%2==1))) {
@@ -63,28 +63,90 @@ public final class Spel {
                     w++;
                 }
                     v++;
-            }
+            }*/
         
         //tot hier om te testen hoe je dat moet doen voor die losse array aan te maken 
         String[][] bord1 = new String[7][7];
-      
+        
+        char[] schatLijst = {'a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x'};
+        
+        
         List<Gangkaart> gangkaarten = new ArrayList<>();
-      
-        gangkaarten.add(new Hoek(0,0,0,'a',"geel"));
-        gangkaarten.add(new Hoek(0,6,0,'b',"blauw")); 
-        gangkaarten.add(new Hoek(0,0,6,'c',"rood"));
-        gangkaarten.add(new Hoek(0,6,6,'d',"groen"));
+        
+        /*gangkaarten.add(new Hoek(0,0,0,"geel"));
+        gangkaarten.add(new Hoek(1,6,0,"blauw")); 
+        gangkaarten.add(new Hoek(2,0,6,"rood"));
+        gangkaarten.add(new Hoek(3,6,6,"groen"));*/
+       
+        int v = 0;
+        while (v < 7) {
+            int w = 0;
+            while (w < 7) {
+                    int draaihoek = 0 +(int)(Math.random() * ((3 - 0) + 1));
+                    int randomNumber = 0 + (int)(Math.random() * ((schatLijst.length-1) + 1));
+                    
+                    char schat = schatLijst[randomNumber];
+                
+                if(v==0 && w==0){
+                    gangkaarten.add(new Hoek(0,v,w,"geel"));
+                }
+               else if(v==6 && w==0){
+                    gangkaarten.add(new Hoek(1,v,w,"blauw")); 
+               }
+                else if(v==0 && w==6){
+                    gangkaarten.add(new Hoek(2,v,w,"rood"));
+                                   
+               }
+                 else if(v==6 && w==6){
+                    gangkaarten.add(new Hoek(3,v,w,"groen"));
+               }
+                
+                 else if(v%2 == 0 & w%2 ==0){
+                     
+                         gangkaarten.add(new Kruising(draaihoek,v,w,schat));
+                         
+                         
+                         
+                         for(int i =  0; i< schatLijst.length ; i++){
+                             if(schatLijst[i]==schat)
+                                 break;
+                            for (int t=i;t<schatLijst.length-1;t++){
+                             schatLijst[t]=schatLijst[t+1];
+                            } 
+                             schatLijst = java.util.Arrays.copyOfRange(schatLijst,0, schatLijst.length-1);
+                         
+                     }
+                 }
+                
+                 else {
+                     gangkaarten.add(new Hoek(3,v,w,"leeg"));
+                 }
+                 
+                 
+                      w++; 
+                 }
+                 
+            v++;
+            }
+          
+            
+        
+
         int x = 0;
         while (x < 7) {
             int y = 0;
             while (y < 7) {
-                
-               if(x == 0 && y==0){
-                                   bord1[x][y] = gangkaarten.get(0).toString();
+                 
+                for(int i =0; i <gangkaarten.size(); i++){
+                  if(x == gangkaarten.get(i).getxPositie() && y == gangkaarten.get(i).getyPositie()){
+                                   bord1[x][y] = gangkaarten.get(i).toString();
                                    //gangkaarten.add(new Hoek(0,x,y,'a',"geel"));
-                                  
-               }
-               else if(x==6 && y==0){
+               
+                         }
+                 /*else{
+                    bord1[x][y] = gangkaarten.get(i).toString();}*/
+                         }       
+               /*else if(x==6 && y==0){
                    bord1[x][y] = gangkaarten.get(1).toString();
                                   // gangkaarten.add(new Hoek(0,x,y,'b',"blauw"));
                }
@@ -100,13 +162,14 @@ public final class Spel {
                else if(x%2 == 0 & y%2 ==0){
                                 bord1[x][y] = "Tpunt";
                                 gangkaarten.add(new Kruising(0,x,y,'e'));
-                }
+                }*/
                 
-                else{
-                    bord1[x][y] ="leeg";}
+                
+                         
                      y++;
-                }
+                     
                 
+            }
                  x++;
                
             }

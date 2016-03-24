@@ -150,13 +150,13 @@ public class UC2 {
       
        public void maakSpelBord(String[][]bord){
         System.out.println("HET SPELBORD:\n");
-        int y = 0;
-        while (y < 7) {
-            int x = 0;
-            while (x < 7) {
+        int x = 0;
+        while (x < 7) {
+            int y = 0;
+            while (y < 7) {
                 String type = bord[x][y];
                 switch (type) {
-                    case "Tpunt":
+                    case "Kruising":
                         System.out.print("Ts ");
                         break;
                     case "Hoekpuntgeel":
@@ -171,15 +171,15 @@ public class UC2 {
                     case "Hoekpuntgroen":
                         System.out.print("Hgr ");
                         break;
-                    case "leeg":
+                    case "Hoekpuntgeen":
                         System.out.print("  ");
                         break;
                     
                 }
 
-                x++;
+                y++;
             }
-            y++;
+            x++;
             System.out.print("\n");
             
 

@@ -98,6 +98,7 @@ public class UC1 {
     }
   
   public String keuzeSpel(String[] spellen) {
+      
         System.out.println(taal.getTekst().getString("kiesSpel") + spellen.length);
         int spelID;
         
