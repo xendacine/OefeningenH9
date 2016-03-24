@@ -120,6 +120,52 @@ public final class Spel {
                 
                  else {
                      gangkaarten.add(new Hoek(3,v,w,"leeg"));
+                     int e = 0;
+                     int c = 0;
+                     int d = 0;
+                     int f = 0;
+                     int g = 0;
+                     // c is de losse hoek teller zonder schat(10), d is de teller van de 6 hoeken met schat 
+                             // e is de teller van de 12 rechte zonder schat
+                             // f is de teller van de 6 t met schat 
+                             // g is de maximale teller 34 stuks 
+                     while (g<34) // totale lijst max 34 stuks
+                     {
+                         int h = 0 +(int)(Math.random() * ((3 - 0) + 1));// generate a random cyfer 0 tot en met 3
+                         if(h==0 && c < 10)
+                         {
+                             gangkaarten.add(new Hoek(draaihoek, v,w, "leeg"));
+                             c++;
+                             g++;
+                         }
+                         else{
+                             if(h==1 && d<6)
+                             {
+                                 gangkaarten.add(new Hoek(draaihoek,v,w,schat,"leeg"));
+                                 d++;
+                                 g++;
+                             }
+                             else{
+                                 if(h==2 && e<12)
+                                 {
+                                     gangkaarten.add(new Rechte(draaihoek,v,w));
+                                     e++;
+                                     g++;
+                                 }
+                                 else{
+                                     if(h==3 && f<6)
+                                     {
+                                         gangkaarten.add(new Kruising(draaihoek,v,w,schat));
+                                         f++;
+                                         g++;
+                                     }
+                                     
+                                         
+                                 }
+                                 
+                             }
+                                 }// ander stukje als losse hoek over de 10 zit 
+                     }
                  }
                  
                  
