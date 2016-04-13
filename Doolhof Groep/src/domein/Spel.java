@@ -35,6 +35,96 @@ public final class Spel {
     public void setSpelnaam(String spelnaam) {
         this.spelnaam = spelnaam;
     }
+    public void maakSpelbord2()
+        {   
+        Gangkaart[][] bord = new Gangkaart[7][7];
+        char[] shatLijst = {};
+        int positieInLijst = 0;
+        
+        
+        //alle hoekkaarten leggen (met kleurtjes)
+        bord[0][0] = new Hoek(0,0,2,"geel");
+        bord[0][6] = new Hoek(0,6,2,"groen");
+        bord[6][0] = new Hoek(6,0,2,"blauw");
+        bord[6][6] = new Hoek(6,6,2,"rood");
+
+
+
+        //alle vaste kaarten leggen									//vaste kaarten liggen ook altijd op dezelfde plaats, dus kan
+        bord[0][2] = new Kruising(0,0,2,'a');                                                           //je deze ook hard coderen (positie, draaihoek, enzoverder)
+        bord[0][4] = new Kruising(0,0,4,'b');                                                           //je moet wel elke kaart nog een schat geven
+																
+        bord[2][0] = new Kruising(0,2,0,'c');								//nu kan je hier bij elke kaart, van bij de eerste te beginnen natuurlijk	
+        bord[2][2] = new Kruising(0,2,2,'d');								//de volgende schat in de lijst toevoegen, door simpelweg schatLijst.get(positieInLijst);
+        bord[2][4] = new Kruising(0,2,4,'e');								//op te roepen. Zo ga je telkens de volgende schat uit de geschudde lijst nemen, en
+        bord[2][6] = new Kruising(0,2,6,'f');								//is het spel altijd random. niet vergeten om elke keer positieInLijst++ te doen, of 
+                                                                                                        //je legt elke keer dezelfde schat
+        bord[4][0] = new Kruising(0,4,0,'g');
+        bord[4][2] = new Kruising(0,4,2,'h');
+        bord[4][4] = new Kruising(0,4,4,'i');
+        bord[4][6] = new Kruising(0,4,6,'j');
+
+        bord[6][2] = new Kruising(0,6,2,'k');
+        bord[6][4] = new Kruising(0,6,4,'l');
+
+        //arraylist van de kaarten
+        ArrayList kaarten = new ArrayList();                                                            //let op, voeg bij de 12 kaarten met schat nog de 
+        kaarten.add(new Gangkaart(Kruising(0,1,2,'f'));                                                 // overige schatten toe uit de shattenlijst! 
+        kaarten.add();                                                                                  //tot alle 34 losse kaarten erin zitten                
+        kaarten.add();
+        kaarten.add();
+        kaarten.add();
+        kaarten.add();
+        kaarten.add();
+        kaarten.add();
+        kaarten.add();
+        kaarten.add();
+        
+        kaarten.add();
+        kaarten.add();
+        kaarten.add();
+        kaarten.add();
+        kaarten.add();
+        kaarten.add();
+        kaarten.add();
+        kaarten.add();
+        kaarten.add();
+        kaarten.add();
+        
+        kaarten.add();
+        kaarten.add();
+        kaarten.add();
+        kaarten.add();
+        kaarten.add();
+        kaarten.add();
+        kaarten.add();
+        kaarten.add();
+        kaarten.add();
+        kaarten.add();
+        
+        kaarten.add();
+        kaarten.add();
+        kaarten.add();
+        kaarten.add();
+        
+        //dan pas alle losse kaarten leggen
+        for(int i = 0; i < 7; i++){
+	for(int j = 0; j < 7; j++){
+		if(i%2 == 0){
+			if(j%2 != 0){
+				bord[i][j] = volgendeKaart;						//volgende kaart uit de kaarten arraylist, dit kan je eventueel
+			}                                                                               //op dezelfde manier doen als bij de schattenlijst
+		} else {
+			bord[i][j] = volgendeKaart;
+		}
+	}
+}
+
+
+//nu heb je een compleet spelbord, waar alle schatten op het bord liggen
+//de laatste (overblijvende) kaart uit de kaartenarray is de vrije gangkaart
+
+        }
      public String[][] maakSpelbord(){
        
      //dit is een testdeel tot volgende comment om te zien hoe je die array moet aanmaken
@@ -258,4 +348,4 @@ public final class Spel {
 //     }
 //    
 //    
-
+    
