@@ -11,10 +11,15 @@ package domein;
  */
 public class Rechte extends Gangkaart {
 
-    public Rechte(int draaihoek, int xPositie, int yPositie, char schat) {
-        super(draaihoek, xPositie, yPositie, schat);
-        schat = getSchat();
-        draaihoek = 0 +(int)(Math.random() * ((1 - 0) + 1));
+    public Rechte(int draaihoek) {
+        super(draaihoek);
+       
+    }
+    
+    @Override
+    public String toString()
+    {   
+        return "Rechte";
     }
     
 }

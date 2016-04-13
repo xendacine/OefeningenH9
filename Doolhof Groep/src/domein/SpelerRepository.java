@@ -5,6 +5,7 @@
  */
 package domein;
 
+import domein.Speler;
 import java.util.ArrayList;
 import java.util.List;
 import persistentie.SpelMapper;
@@ -22,11 +23,14 @@ public class SpelerRepository {
     
      public SpelerRepository() {
         mapper = new SpelerMapper();
-        spelers = new ArrayList<>();
+        spelers = new ArrayList<Speler>();
     }
     
     public List<Speler> geefSpelers(int spelID){
         return mapper.geefSpelers(spelID);
+    }
+     public List<Speler> geefSpelers(){
+        return spelers;
     }
     public int getAantalSpelers() {	return aantalSpelers; }
 

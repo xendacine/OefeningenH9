@@ -11,22 +11,18 @@ package domein;
  */
 public abstract class Gangkaart {
     private int draaihoek;
-    private int xPositie;
-    private int yPositie;
+    
     public char schat;
     
     
-    public Gangkaart(int draaihoek, int xPositie, int yPositie, char schat){
+    public Gangkaart(int draaihoek, char schat){
         this.draaihoek = draaihoek;
-        this.xPositie = xPositie;
-        this.yPositie = yPositie;
+        
         this.schat = schat;
     }
-    public Gangkaart(int draaihoek,int xPositie, int yPositie){
+     public Gangkaart(int draaihoek){
         this.draaihoek = draaihoek;
-        this.xPositie = xPositie;
-        this.yPositie = yPositie;
-    }
+     }
     public int getDraaihoek() {
         return draaihoek;
     }
@@ -35,21 +31,6 @@ public abstract class Gangkaart {
         this.draaihoek = draaihoek;
     }
 
-    public int getxPositie() {
-        return xPositie;
-    }
-
-    public void setxPositie(int xPositie) {
-        this.xPositie = xPositie;
-    }
-
-    public int getyPositie() {
-        return yPositie;
-    }
-
-    public void setyPositie(int yPositie) {
-        this.yPositie = yPositie;
-    }
 
     public char getSchat() {
         return schat;

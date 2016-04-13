@@ -11,33 +11,39 @@ package domein;
  */
 public class Hoek extends Gangkaart {
   private String kleur;
-
+ private boolean heeftSchat = false;
     
 
     public String getKleur() {
         return kleur;
     }
+    
 
     public void setKleur(String kleur) {
         this.kleur = kleur;
     }
-    public Hoek(int draaihoek, int xPositie, int yPositie, char schat, String kleur) {
-        super(draaihoek, xPositie, yPositie, schat);
+    public Hoek(int draaihoek, char schat, String kleur) {
+        super(draaihoek, schat);
+        this.kleur = kleur;
+        this.heeftSchat = true;
+        
+    }
+    
+    public Hoek(int draaihoek, String kleur) {
+        super(draaihoek);
         this.kleur = kleur;
     }
-    public Hoek(int draaihoek, int xPositie, int yPositie, String kleur){
-        super(draaihoek, xPositie, yPositie);
-        setKleur(kleur);
-    }
-    public Hoek(int draaihoek, int xPositie, int yPositie){
-        super(draaihoek, xPositie, yPositie);
-    }
+   
     
     @Override
     public String toString()
     {
+        if(this.heeftSchat)
+        return "Hoekpunt"+getKleur()+"schat";
         
-        return "Hoekpunt"+getKleur();
+        else{
+            return "Hoekpunt"+getKleur();
+        }
     }
     
 }

@@ -14,19 +14,12 @@ import domein.DoelKaart;
  */
 public class Kruising extends Gangkaart{
 
-    Kruising(int draaihoek, int xPositie, int yPositie, char schat) {
-        super(draaihoek, xPositie, yPositie, schat);
+    Kruising(int draaihoek, char schat) {
+        super(draaihoek, schat);
         
         
     }
-    @Override
-    public char getSchat()
-    {
-        int randomNumber = 0 + (int)(Math.random() * ((23 - 0) + 1));
-        char[] schatLijst = {'a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z'};
-        schat = schatLijst[randomNumber];
-        return schat;
-    }
+    
     @Override
     public String toString()
     {   

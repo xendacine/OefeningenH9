@@ -5,6 +5,12 @@
  */
 package domein;
 
+import domein.Spel;
+import domein.SpelRepository;
+import domein.Spelbord;
+import domein.Speler;
+import domein.SpelerRepository;
+import domein.Taal;
 import java.util.Iterator;
 import java.util.List;
 
@@ -64,11 +70,18 @@ public class DomeinController {
    
   
    public void wenstSpelAanTemaken(){
+       spelbord = new Spelbord();
+       spelerlijst = spelerRepo.geefSpelers();
        spel = new Spel(spelbord,spelerlijst);
        
    }
-   public String[][] maakSpelbord(){
-      return  spel.maakSpelbord();
+   public void maakSpelbord(){
+      spel.maakSpelbord();
+   }
+   
+   public String[][] toonSpelbord(){
+     
+      return spelbord.toonSpelbord();
    }
    public void stelAantalSpelersIn(int aantal)
 	{
@@ -80,4 +93,11 @@ public class DomeinController {
 		spelerRepo.maakSpeler(naam,geboortejaar,kleur);
 	}
   
+   public void bepaalEersteSpeler(){
+       spel.bepaalEersteSpeler();
+   }
+   
+   public List<Speler> geefOverzichtSpelers(){
+       return spelerlijst = spel.bepaalSpelersVolgorde();
+   }
 }

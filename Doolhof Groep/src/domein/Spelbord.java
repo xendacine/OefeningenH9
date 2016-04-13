@@ -13,18 +13,16 @@ import java.util.List;
  * @author Sven V
  */
 public class Spelbord {
-    private String[][] bord;
+    
     private String naam;
     private char[] schatlijst;
-    private DoelKaart doelkaart;
-    private Gangkaart[] gangkaarten;
+    private String[][] bord;
+    String[][] bord1 = new String[7][7];
+    
+   
     
     
     
-    public Spelbord(String[][] kaarten) {
-        this.bord = kaarten;
-
-    }
     
     public Spelbord(String naam){
         this.naam = naam;
@@ -38,13 +36,8 @@ public class Spelbord {
     public String[][] getBord() {
         return bord;
     }
-     public String[][] getVakken() {
-        return bord;
-    }
-
-    public void setVakken(String[][] vakken) {
-        this.bord = vakken;
-    }
+    
+  
    
 
 
@@ -52,6 +45,13 @@ public class Spelbord {
         this.bord = bord;
     }
     
+    public void voegToe(Gangkaart gangkaart,int x , int y){
+        
+        
+        bord1[x][y] = gangkaart.toString();
+      
+        
+    }
     
     
     
@@ -60,8 +60,8 @@ public class Spelbord {
                
           public String[][] toonSpelbord() 
 	{
-		String[][] bord1 = getBord();
-                return bord1; 
+		return bord1;
+               
 	}	
         
     }
