@@ -187,7 +187,11 @@ public class UC2 {
             
 
         }
-       geefOverzichtSpelers();
+       //geefOverzichtSpelers();
+       List<Speler> spelers = dc.testArray();
+       for(int i = 0 ; i<spelers.size()-1 ; i++){
+           System.out.print(spelers.get(i).getSpelernaam());
+       }
     }
        
        public void geefOverzichtSpelers()

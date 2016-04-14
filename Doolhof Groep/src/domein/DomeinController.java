@@ -100,4 +100,7 @@ public class DomeinController {
    public List<Speler> geefOverzichtSpelers(){
        return spelerlijst = spel.bepaalSpelersVolgorde();
    }
+   public List<Speler> testArray(){
+       return spel.jongsteSpeler(spelerlijst);
+   }
 }
