@@ -163,10 +163,11 @@ public final class Spel {
 		return spelersVolgorde;
 	}
          public List<Speler> jongsteSpeler(List<Speler> spelerlijst){
-         List a = new ArrayList();       int nrJongste = 0;                                               // lijst om paar lijnen verder de jongste speler in op te slaan.
-         for (int i = 0; i < spelerlijst.size();i++ ){                                  // overlopen spelerlijst
-             int jongsteSpeler = 1900;                                                  // iedereen is swso jonger dan geboortejaar 1900 
-             if(spelerlijst.get(i).getSpelerGeboortejaar() > jongsteSpeler)             // vgl met jongste speler die aangepast wordt in deze forlus
+         List a = new ArrayList();       int nrJongste = 0;   
+         int jongsteSpeler = 1900;                                                         // lijst om paar lijnen verder de jongste speler in op te slaan.
+         for (int i = 0; i < spelerlijst.size();i++ ){                                       // overlopen spelerlijst
+                                                                                                // iedereen is swso jonger dan geboortejaar 1900 
+             if(spelerlijst.get(i).getSpelerGeboortejaar() > jongsteSpeler)                         // vgl met jongste speler die aangepast wordt in deze forlus
              {
                  {
                  jongsteSpeler = spelerlijst.get(i).getSpelerGeboortejaar();
