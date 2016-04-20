@@ -28,7 +28,7 @@ public class UC2 {
     private String naam;
     private String kleur;
     private int geboortejaar;
-    
+    private int beurt = 0;
      public UC2(DomeinController dc,DoolhofApp app,Taal taal)
     {
         this.scanner = new Scanner(System.in);
@@ -87,21 +87,38 @@ public class UC2 {
           this.maakSpelBord(bord);
       }
       public String geefNaam(int i){
-        System.out.println("Gelieve de naam van speler "+(i+1)+" in te geven:");
-        String naam1;
+       String naam1;
         int naamLengte;
-        naam1 = scanner.next();
-        naamLengte = naam1.length();
+          
+                   
+        
+          System.out.println("Gelieve de naam van speler "+(i+1)+" in te geven:");
+                     naam1 = scanner.next();  
+                      naamLengte = naam1.length();
+                    if (naamLengte < 2) {
+                     System.out.println("De naam is te kort! ");
+                            
+                     naam1 = geefNaam(i);}
+                    
+                    if(dc.bestaatSpeler(naam1)){
+                        System.out.println("De naam is niet uniek! ");
+                        naam1= geefNaam(i);
+                    }
+                    for ( int j =0 ; j < naam1.length() ; j ++){
+                        char deeltje = naam1.charAt(j);
+                        if(!Character.isLetter(deeltje)){
+                            System.out.print("De naam bevat een cijfer, leesteken of spatie!");
+                           naam1 = geefNaam(i);
+                        }
+                        
+                    }
+      
 
-        if (naamLengte < 2) {
-            System.out.println("De naam is te kort! ");
-
-            naam1 = geefNaam(i);
-
-        }
+        
+       
 
         return naam1;
-    
+           
       }
       
       public int geefGeboortejaar(int i){
@@ -134,6 +151,10 @@ public class UC2 {
                   }
               }
          }
+          if(dc.bestaatKleur(kleur1)){
+                        System.out.println("De kleur is al gekozen! ");
+                        kleur1= geefKleur(i);
+                    }
         
            
             return kleur1;
@@ -259,17 +280,18 @@ public class UC2 {
        
        public void geefOverzichtSpelers()
     {
-    	System.out.printf("meldingDeelnemers\n");
+    	System.out.printf("Volgorde spelers na bepaling eerste speler : \n");
     	
     	List<Speler> spelers = dc.geefOverzichtSpelers();
-        
+        String spelersNaam = dc.geefHuidigeSpeler(beurt);
     	for (int i = 0; i < spelers.size(); i++)
     	{
-            
-    		System.out.println("\nSpeler " + (i+1) + ": " + spelers.get(i).getSpelernaam() + " met Kleur : " 
-                        + spelers.get(i).getSpelerKleur()  );
+            if(spelersNaam.equals(spelers.get(i).getSpelernaam())){
+    		System.out.println("\nSpeler " + (i+1) + ": " + spelers.get(i).getSpelernaam()+ " is aan de beurt" );}
                        
-                       
+            else {
+                System.out.println("\nSpeler " + (i+1) + ": " + spelers.get(i).getSpelernaam());
+            }         
     	}
     	System.out.println();
     }

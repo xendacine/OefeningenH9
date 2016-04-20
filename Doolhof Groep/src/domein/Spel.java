@@ -27,6 +27,7 @@ public final class Spel {
     char[] schatLijst = {'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x'};
    // char[] schatLijst2 = {'m', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x'};
     private Speler jongsteSpeler;
+    private Speler huidigeSpeler;
     private int jongsteSpelerDatum;
     //private SpelerRepository spelerRepo = new SpelerRepository();
     
@@ -180,42 +181,14 @@ public final class Spel {
 		return spelersVolgorde;
 	}
    
+   public Speler bepaalSpelerAanBeurt(int beurt)
+    {
+        int beurtSpeler = (beurt) % spelersVolgorde.size();
+        huidigeSpeler = spelersVolgorde.get(beurtSpeler);
+        return huidigeSpeler;
+    }
    
-         public List<Speler> jongsteSpeler(List<Speler> spelerlijst){
-         List a = new ArrayList();       int nrJongste = 0;   
-         int jongsteSpeler = 1900;                                                         // lijst om paar lijnen verder de jongste speler in op te slaan.
-         for (int i = 0; i < spelerlijst.size();i++ ){                                       // overlopen spelerlijst
-                                                                                                // iedereen is swso jonger dan geboortejaar 1900 
-             if(spelerlijst.get(i).getSpelerGeboortejaar() > jongsteSpeler)                         // vgl met jongste speler die aangepast wordt in deze forlus
-             {
-                 {
-                 jongsteSpeler = spelerlijst.get(i).getSpelerGeboortejaar();
-                 a.add(0,spelerlijst.get(i));}    
-                 nrJongste = i;
-// jongste speler word op rang 0 opgeslagen in de a. lijst.
-//                 if ( i == spelerlijst.size()){                                         // bij de laatste speler 
-//                     for (int j = 0; j < spelerlijst.size(); j++){                      // spelerlijst opnieuw overlopen  want programma weet waarschijnlijk niet welke waarde 
-//                                                                                        // is opgeslagen als jongste speler
-//                         
-//                     if(spelerlijst.get(j).equals(a.get(0))){                           // als de speler (met attributen) gelijk is aan de jongste speler
-//                         
-//                     spelerlijst.remove(spelerlijst.get(i));                            // word deze verwijdert. 
-//                     }
-//                     spelerlijst.add(0, (Speler) a.get(0));                             // de jongste speler bovenaan toevoegen aan de spelerlijst. 
-//                                                                                        // → zou deze verdwenen zijn nadat ik hem heb verwijdert uit de spelerlijst
-//                     
-//                    
-//                     }
-                 }
-             }
-         for (int j  = nrJongste+1; j < spelerlijst.size();j++){
-             a.add(spelerlijst.get(j));
-             for (int k = 0; k < nrJongste;k++){
-                 a.add(spelerlijst.get(k));
-             }
-             
-         }
-         return a;
-         }
+   
+        
          
     }

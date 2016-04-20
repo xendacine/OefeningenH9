@@ -26,6 +26,7 @@ public class DomeinController {
     private List<Speler> spelerlijst;
     private Taal taal;
     private Spelbord spelbord;
+    private Speler huidigeSpeler ;
     public DomeinController() {
         
     
@@ -100,7 +101,27 @@ public class DomeinController {
    public List<Speler> geefOverzichtSpelers(){
        return spelerlijst = spel.bepaalSpelersVolgorde();
    }
-   public List<Speler> testArray(){
-       return spel.jongsteSpeler(spelerlijst);
-   }
+  
+   
+    public Speler bepaalSpelerAanBeurt(int beurt)
+    {
+        return spel.bepaalSpelerAanBeurt(beurt);
+    }
+     
+    /** Geeft aan welke speler in deze beurt mag spelen. */
+    public String geefHuidigeSpeler(int beurt)
+    {                                
+        huidigeSpeler = this.bepaalSpelerAanBeurt(beurt);
+        return huidigeSpeler.getSpelernaam();
+    }
+    public boolean bestaatSpeler(String naam){
+        
+    
+    return spelerRepo.bestaatSpelerMetNaam(naam);}
+    
+    
+    public boolean bestaatKleur(String kleur){
+        
+    
+    return spelerRepo.bestaatKleur(kleur);}
 }

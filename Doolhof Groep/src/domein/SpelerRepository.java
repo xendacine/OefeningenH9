@@ -46,19 +46,13 @@ public class SpelerRepository {
 	{
 		Speler speler = new Speler(naam,geboortejaar,kleur);
 		
-		if(!bestaatSpelerMetNaam(naam)) {
-                    if(!bestaatKleur(kleur)){
+		
                     
                     spelers.add(speler); }
-                    else {
-                        throw new IllegalArgumentException("Kleur is al gekozen!");
-                    }
-                }
-		else 
-			throw new IllegalArgumentException("dubbeleNaam");
-	}
+                    
 	
-	private boolean bestaatSpelerMetNaam(String naam) 
+	
+	public boolean bestaatSpelerMetNaam(String naam) 
 	{
 		if(spelers.size() == 0)
 			return false;
@@ -71,7 +65,7 @@ public class SpelerRepository {
 			return false;
 	}  
         
-        private boolean bestaatKleur(String kleur) 
+        public boolean bestaatKleur(String kleur) 
 	{
 		if(spelers.size() == 0)
 			return false;
