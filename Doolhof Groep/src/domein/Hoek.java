@@ -39,7 +39,7 @@ public class Hoek extends Gangkaart {
     public String toString()
     {
         if(this.heeftSchat)
-        return "Hoekpunt"+getKleur()+"schat";
+        return "Hoekpunt"+getKleur()+schat;
         
         else{
             return "Hoekpunt"+getKleur();

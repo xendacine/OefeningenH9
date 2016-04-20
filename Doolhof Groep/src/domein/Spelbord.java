@@ -17,7 +17,7 @@ public class Spelbord {
     private String naam;
     private char[] schatlijst;
     private String[][] bord;
-    String[][] bord1 = new String[7][7];
+    Gangkaart[][] bord1 = new Gangkaart[7][7];
     
    
     
@@ -48,7 +48,7 @@ public class Spelbord {
     public void voegToe(Gangkaart gangkaart,int x , int y){
         
         
-        bord1[x][y] = gangkaart.toString();
+        bord1[x][y] = gangkaart;
       
         
     }
@@ -60,7 +60,18 @@ public class Spelbord {
                
           public String[][] toonSpelbord() 
 	{
-		return bord1;
+            String spel[][] = new String[7][7];
+            int x = 0;
+        while (x < 7) {
+            int y = 0;
+            while (y < 7) {
+                    spel[x][y]= bord1[x][y].toString();
+                    
+                    y++;
+                }
+            x++;
+            }
+		return spel;
                
 	}	
         

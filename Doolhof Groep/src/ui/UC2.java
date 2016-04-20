@@ -153,8 +153,59 @@ public class UC2 {
                     type = "Kruising";
                 }
                  switch (type) {
-                    case "Kruising":
+                    case "Kruisinga":
+                        System.out.print("Ta  ");
+                        break;
+                    case "Kruisingb":
+                        System.out.print("Tb  ");
+                        break;
+                    case "Kruisingc":
+                        System.out.print("Tc  ");
+                        break;
+                    case "Kruisingd":
+                        System.out.print("Td  ");
+                        break;
+                    case "Kruisinge":
+                        System.out.print("Te  ");
+                        break;  
+                    case "Kruisingf":
+                        System.out.print("Tf  ");
+                        break;
+                    case "Kruisingg":
+                        System.out.print("Tg  ");
+                        break; 
+                    case "Kruisingh":
+                        System.out.print("Th  ");
+                        break;
+                    case "Kruisingi":
+                        System.out.print("Ti  ");
+                        break; 
+                    case "Kruisingj":
+                        System.out.print("Tj  ");
+                        break;
+                    case "Kruisingk":
+                        System.out.print("Tk  ");
+                        break; 
+                    case "Kruisingl":
+                        System.out.print("Tl  ");
+                        break;
+                    case "Kruisings":
                         System.out.print("Ts  ");
+                        break;
+                    case "Kruisingt":
+                        System.out.print("Tt  ");
+                        break;
+                    case "Kruisingu":
+                        System.out.print("Tu  ");
+                        break;
+                    case "Kruisingv":
+                        System.out.print("Tv  ");
+                        break;
+                    case "Kruisingw":
+                        System.out.print("Tw  ");
+                        break;
+                    case "Kruisingx":
+                        System.out.print("Tx  ");
                         break;
                     case "Hoekpuntgeel":
                         System.out.print("Hg  ");
@@ -171,8 +222,23 @@ public class UC2 {
                     case "Hoekpuntleeg":
                         System.out.print("H   ");
                         break;
-                    case "Hoekpuntleegschat":
-                        System.out.print("Hs  ");
+                    case "Hoekpuntleegm":
+                        System.out.print("Hm  ");
+                        break;
+                    case "Hoekpuntleegn":
+                        System.out.print("Hn  ");
+                        break; 
+                    case "Hoekpuntleego":
+                        System.out.print("Ho  ");
+                        break;
+                    case "Hoekpuntleegp":
+                        System.out.print("Hp  ");
+                        break;  
+                    case "Hoekpuntleegq":
+                        System.out.print("Hq  ");
+                        break;
+                    case "Hoekpuntleegr":
+                        System.out.print("Hr  ");
                         break;
                     case "Rechte":
                         System.out.print("R   ");
@@ -187,11 +253,8 @@ public class UC2 {
             
 
         }
-       //geefOverzichtSpelers();
-       List<Speler> spelers = dc.testArray();
-       for(int i = 0 ; i<spelers.size()-1 ; i++){
-           System.out.print(spelers.get(i).getSpelernaam());
-       }
+       geefOverzichtSpelers();
+      
     }
        
        public void geefOverzichtSpelers()
@@ -200,26 +263,13 @@ public class UC2 {
     	
     	List<Speler> spelers = dc.geefOverzichtSpelers();
         
-    	for (int i = 0; i < aantalSpelers; i++)
+    	for (int i = 0; i < spelers.size(); i++)
     	{
             
     		System.out.println("\nSpeler " + (i+1) + ": " + spelers.get(i).getSpelernaam() + " met Kleur : " 
-                        + spelers.get(i).getSpelerKleur() + "\n Start op : " );
-                        String spelerkleur = spelers.get(i).getSpelerKleur();
-                        switch(spelerkleur){
-                             case "blauw":
-                        System.out.print("Het vakje met coordinaten [0,6]");
-                        break;
-                        case "geel":
-                        System.out.print("Het vakje met coordinaten [0,0]");
-                        break;
-                    case "groen":
-                        System.out.print("Het vakje met coordinaten [6,6]");
-                        break;
-                    case "rood":
-                        System.out.print("Het vakje met coordinaten [6,0]");
-                        break;
-                        }
+                        + spelers.get(i).getSpelerKleur()  );
+                       
+                       
     	}
     	System.out.println();
     }

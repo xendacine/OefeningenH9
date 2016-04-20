@@ -19,14 +19,19 @@ public final class Spel {
     private String spelnaam;
     private List<Speler> spelers;
     private List<Speler> spelersTijdelijk;
+    private List<Speler> spelersGelijk;
     private List<Speler> spelersVolgorde;
+    private List<String> spelersNamen;
     private Spelbord spelbord;
     List<Gangkaart> gangkaarten = new ArrayList<>();
     char[] schatLijst = {'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x'};
-    char[] schatLijst2 = {'m', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x'};
+   // char[] schatLijst2 = {'m', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x'};
     private Speler jongsteSpeler;
+    private int jongsteSpelerDatum;
+    //private SpelerRepository spelerRepo = new SpelerRepository();
+    
     public Spel(String spelnaam) {
-
+      
         setSpelnaam(spelnaam);
 
     }
@@ -120,22 +125,39 @@ public final class Spel {
         }
     
     public void bepaalEersteSpeler(){
+        
         spelersTijdelijk = new ArrayList<Speler>();
-       
+        spelersNamen = new ArrayList<String>();
         spelersTijdelijk.addAll(spelers);
-        jongsteSpeler = spelers.get(0);
-        for(int i = 1 ; i< spelersTijdelijk.size()-1 ; i++){
-            if( jongsteSpeler.getSpelerGeboortejaar()>spelersTijdelijk.get(i).getSpelerGeboortejaar()){
-                jongsteSpeler = spelersTijdelijk.get(i);
+        jongsteSpelerDatum = 1900;
+        for(int i = 0 ; i< spelersTijdelijk.size() ; i++){
+            if( jongsteSpelerDatum<spelersTijdelijk.get(i).getSpelerGeboortejaar()){
+                jongsteSpelerDatum = spelersTijdelijk.get(i).getSpelerGeboortejaar();
                 
             }
-            else if(jongsteSpeler.getSpelerGeboortejaar() == spelersTijdelijk.get(i).getSpelerGeboortejaar()){
-                if(jongsteSpeler.getSpelernaam().compareTo(spelersTijdelijk.get(i).getSpelernaam())>0){
-                    jongsteSpeler = spelersTijdelijk.get(i);
-                }
-            }
            
-            
+            }
+        for(int j =0 ; j< spelersTijdelijk.size(); j++){
+            if(jongsteSpelerDatum == spelersTijdelijk.get(j).getSpelerGeboortejaar()){
+                spelersNamen.add(spelersTijdelijk.get(j).getSpelernaam());
+            }
+        }
+        
+        if(spelersNamen.size()>1){
+            Collections.sort(spelersNamen);
+            for(int l = 0 ; l < spelersTijdelijk.size() ; l++){
+            if(spelersTijdelijk.get(l).getSpelernaam().equals(spelersNamen.get(0))){
+                jongsteSpeler = spelersTijdelijk.get(l);
+            }
+        }
+        }
+        
+        else {
+            for(int k = 0 ; k < spelersTijdelijk.size() ; k++){
+            if(spelersTijdelijk.get(k).getSpelernaam().equals(spelersNamen.get(0))){
+                jongsteSpeler = spelersTijdelijk.get(k);
+            }
+                }
         }
         
     }
@@ -143,25 +165,22 @@ public final class Spel {
    public List<Speler> bepaalSpelersVolgorde()
 	{
                 spelersVolgorde = new ArrayList<Speler>();
-                if(spelersTijdelijk.indexOf(jongsteSpeler)== 0){
-                    return spelersTijdelijk;
+                spelersVolgorde.add(0,jongsteSpeler);
+                for (int i = spelersTijdelijk.indexOf(jongsteSpeler)+1 ; i < spelersTijdelijk.size() ; i++){
+                    spelersVolgorde.add(spelersTijdelijk.get(i));
                 }
-                else{
-            List<Speler> volgorde1 = spelersTijdelijk.subList(spelersTijdelijk.indexOf(jongsteSpeler),spelersTijdelijk.size()-1);
-            List<Speler> volgorde2 = spelersTijdelijk.subList(0, spelersTijdelijk.indexOf(jongsteSpeler));
-                   spelersVolgorde.add(0,jongsteSpeler);
-                    for ( int i = 1; i<volgorde1.size()-1; i++){
-                        spelersVolgorde.add(i,volgorde1.get(i));
-                    }
-                    for (int j = spelersVolgorde.size()-1; j<volgorde2.size()-1;j++){
-                        spelersVolgorde.add(j,volgorde2.get(j));
-                    }
+                for( int j = 0; j <spelersTijdelijk.indexOf(jongsteSpeler) ; j ++ ){
+                    spelersVolgorde.add(spelersTijdelijk.get(j));
                 }
-                
-                
-                
+               /* for(int m = spelersTijdelijk.size()-1; m > spelersTijdelijk.indexOf(jongsteSpeler)  ; m --){
+  
+                    spelersTijdelijk.remove(spelersTijdelijk.get(m));
+                }
+                spelersVolgorde.addAll(spelersTijdelijk);*/
 		return spelersVolgorde;
 	}
+   
+   
          public List<Speler> jongsteSpeler(List<Speler> spelerlijst){
          List a = new ArrayList();       int nrJongste = 0;   
          int jongsteSpeler = 1900;                                                         // lijst om paar lijnen verder de jongste speler in op te slaan.
