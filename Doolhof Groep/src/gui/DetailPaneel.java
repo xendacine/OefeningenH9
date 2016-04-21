@@ -35,8 +35,8 @@ public class DetailPaneel extends GridPane
         txfSpelernaam.setEditable(false);
         txfSpeler2.setEditable(false);
         txfSpeler3.setEditable(false);
-        txfSpeler4.setEditable(false);
-        this.add(new Label("Details"), 0, 0, 2, 1);
+//        txfSpeler4.setEditable(false);
+        this.add(new Label("Details"),0,0,1,1);
         this.add(new Label("SpelerScore: "), 0, 1);
         this.add(txfSpelernaam, 1,1);
         this.add(new Label("naam2"), 0,2);
@@ -49,7 +49,7 @@ public class DetailPaneel extends GridPane
     }
     public void update(String[] info)
     {
-        txfSpelernaam.setText(info[info.length]);
+        txfSpelernaam.setText("hey");
 //        txfSpeler2.setText(info[1]);
 //        txfSpeler3.setText(info[2]);
     }
