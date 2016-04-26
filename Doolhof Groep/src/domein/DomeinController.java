@@ -74,7 +74,7 @@ public class DomeinController {
        spelbord = new Spelbord();
        spelerlijst = spelerRepo.geefSpelers();
        spel = new Spel(spelbord,spelerlijst);
-       
+       spel.maakDoelkaarten();
    }
    public void maakSpelbord(){
       spel.maakSpelbord();
@@ -89,9 +89,9 @@ public class DomeinController {
 		spelerRepo.setAantalSpelers(aantal);
 	}
    
-   public void maakSpeler(String naam,int geboortejaar, String kleur) 
+   public void maakSpeler(String naam,int geboortejaar, String kleur, List<DoelKaart> doelkaarten) 
 	{
-		spelerRepo.maakSpeler(naam,geboortejaar,kleur);
+		spelerRepo.maakSpeler(naam,geboortejaar,kleur, doelkaarten);
 	}
   
    public void bepaalEersteSpeler(){
@@ -108,7 +108,9 @@ public class DomeinController {
         return spel.bepaalSpelerAanBeurt(beurt);
     }
      
-    /** Geeft aan welke speler in deze beurt mag spelen. */
+    /** Geeft aan welke speler in
+     * @param beurt deze beurt mag spelen.
+     * @return  */
     public String geefHuidigeSpeler(int beurt)
     {                                
         huidigeSpeler = this.bepaalSpelerAanBeurt(beurt);
@@ -124,4 +126,8 @@ public class DomeinController {
         
     
     return spelerRepo.bestaatKleur(kleur);}
+    
+    public List<DoelKaart> verdeelDoelkaarten(int aantalSpelers, int i){
+        return spel.verdeelDoelkaarten(aantalSpelers, i);
+    }
 }

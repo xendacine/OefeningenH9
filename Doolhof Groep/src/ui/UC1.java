@@ -38,7 +38,7 @@ public class UC1 {
      public void startSpel(){
         int keuze;
          
-         do {
+         
             keuze = geefKeuze();
             switch (keuze) {
                 case 1:
@@ -51,8 +51,7 @@ public class UC1 {
                     System.exit(0);
            }
             
-   }while (keuze
-                != 2);
+   
      }
      
      

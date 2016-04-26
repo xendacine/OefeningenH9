@@ -20,10 +20,14 @@ public class SpelerRepository {
     private final SpelerMapper mapper;
     private List<Speler> spelers;
     private int aantalSpelers;
-    
+    private List<DoelKaart> doelkaarten = new ArrayList<>();;
+    private DomeinController dc;
+   
+   
      public SpelerRepository() {
         mapper = new SpelerMapper();
         spelers = new ArrayList<Speler>();
+       
     }
     
     public List<Speler> geefSpelers(int spelID){
@@ -42,9 +46,12 @@ public class SpelerRepository {
 			throw new IllegalArgumentException("invalidAantalSpelers");
 	}
         
-     public void maakSpeler(String naam, int geboortejaar, String kleur) 
-	{
-		Speler speler = new Speler(naam,geboortejaar,kleur);
+     public void maakSpeler(String naam, int geboortejaar, String kleur, List<DoelKaart> doelkaarten) 
+	{ 
+                
+                
+                
+		Speler speler = new Speler(naam,geboortejaar,kleur,doelkaarten);
 		
 		
                     
@@ -77,4 +84,12 @@ public class SpelerRepository {
 			}
 			return false;
 	}   
+        
+         public List<DoelKaart> getDoelkaarten() {
+        return doelkaarten;
+    }
+
+    public void setDoelkaarten(List<DoelKaart> doelkaarten) {
+        this.doelkaarten = doelkaarten;
+    }
 }

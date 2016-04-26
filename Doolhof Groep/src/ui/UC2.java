@@ -5,9 +5,11 @@
  */
 package ui;
 
+import domein.DoelKaart;
 import domein.DomeinController;
 import domein.Speler;
 import domein.Taal;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.InputMismatchException;
 import java.util.List;
@@ -29,6 +31,7 @@ public class UC2 {
     private String kleur;
     private int geboortejaar;
     private int beurt = 0;
+    private List<DoelKaart> doelkaarten = new ArrayList<>();
      public UC2(DomeinController dc,DoolhofApp app,Taal taal)
     {
         this.scanner = new Scanner(System.in);
@@ -77,8 +80,8 @@ public class UC2 {
                                 naam = geefNaam(i);
                                 geboortejaar = geefGeboortejaar(i);
                                 kleur = geefKleur(i);        
-    				
-    				dc.maakSpeler(naam,geboortejaar,kleur);
+    				List<DoelKaart> doelkaarten = dc.verdeelDoelkaarten(aantalSpelers, i);
+    				dc.maakSpeler(naam,geboortejaar,kleur, doelkaarten);
                                 
           }
           
@@ -122,10 +125,18 @@ public class UC2 {
       }
       
       public int geefGeboortejaar(int i){
+          int jaar = 0;
+          try{
           System.out.println("Geef de geboortejaar in van speler"+(i+1)+":");
-          int jaar;
-          jaar = scanner.nextInt();
           
+          jaar = scanner.nextInt();
+          }
+          
+         catch(InputMismatchException imme)/* Controle op letters */
+    		{
+    			System.out.println("Gelieve een geldige geboortedatum in te geven!");
+    			scanner.nextLine();
+    		}
           if(jaar>2010 ){
               System.out.println("Je moet minstens 7 jaar zijn!");
               jaar = geefGeboortejaar(i);
@@ -133,9 +144,14 @@ public class UC2 {
           
          if(jaar<1926){
                            System.out.println("Je mag maximaal 90 jaar zijn!");
-                           geboortejaar = geefGeboortejaar(i);
+                           jaar = geefGeboortejaar(i);
          }
-          return jaar;
+            
+                  
+          return jaar; 
+         
+          
+          
       }
       public String geefKleur(int i){
           System.out.println("Geef de kleur in van speler"+(i+1)+"(rood, geel, groen, blauw):");
@@ -287,10 +303,22 @@ public class UC2 {
     	for (int i = 0; i < spelers.size(); i++)
     	{
             if(spelersNaam.equals(spelers.get(i).getSpelernaam())){
-    		System.out.println("\nSpeler " + (i+1) + ": " + spelers.get(i).getSpelernaam()+ " is aan de beurt" );}
+    		System.out.println("\nSpeler " + (i+1) + ": " + spelers.get(i).getSpelernaam()+ " is aan de beurt"+ "\n heeft de volgende doelkaarten: ");
+                 for(int j = 0; j < spelers.get(i).getDoelkaarten().size(); j ++){
+                     String doelkaart = spelers.get(i).getDoelkaarten().get(j).toString();
+                     
+                     System.out.print(doelkaart+"\n");
+                             
+                 }
+                        }
                        
             else {
                 System.out.println("\nSpeler " + (i+1) + ": " + spelers.get(i).getSpelernaam());
+                 for(int j = 0; j < spelers.get(i).getDoelkaarten().size(); j ++){
+                     String doelkaart = spelers.get(i).getDoelkaarten().get(j).toString();
+                     
+                     System.out.print(doelkaart+"\n");
+                 }
             }         
     	}
     	System.out.println();

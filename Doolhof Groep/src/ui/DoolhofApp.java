@@ -33,7 +33,7 @@ public class DoolhofApp {
      
      int keuze;
      
-      do {
+      
             keuze = geefKeuze();
             switch (keuze) {
                 case 1:
@@ -44,8 +44,7 @@ public class DoolhofApp {
                     System.exit(0);
            }
             
-   }while (keuze
-                != 2);
+   
       
  }
       

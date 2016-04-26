@@ -14,17 +14,26 @@ import java.util.Iterator;
 public class DoelKaart 
 {
     
-    private char schat;
-    
+    public char schat;
     
     public DoelKaart(char schat){
+       this.schat = schat;
+    }
+   public char getSchat() {
+        return schat;
+    }
+
+    public void setSchat(char schat) {
         this.schat = schat;
     }
    
-    public char[] DoelKaartenLijst() {
-        char[] DoelKaartenLijst = {'a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x'};
-        return DoelKaartenLijst;
-
+    
+    @Override
+    public String toString()
+    {   
+        return "Doelkaart:"+schat;
     }
     
-}
+    }
+    
+

@@ -5,6 +5,9 @@
  */
 package domein;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  *
  * @author Sven V
@@ -13,17 +16,20 @@ public final class Speler {
     private String naam;
     private int geboortejaar;
     private String kleur;
-    
+    private List<DoelKaart> doelkaarten = new ArrayList<>();
+
+   
     
     public Speler(String naam){
         setSpelernaam(naam);
     }
     
-    public Speler(String naam, int geboortejaar, String kleur){
+    public Speler(String naam, int geboortejaar, String kleur, List<DoelKaart> Doelkaarten){
         
         setSpelernaam(naam);
         setSpelerKleur(kleur);
         setSpelerGeboortejaar(geboortejaar);
+        setDoelkaarten(Doelkaarten);
     }
     
     
@@ -49,6 +55,13 @@ public final class Speler {
 
     public void setSpelerKleur(String kleur) {
         this.kleur = kleur;
+    }
+     public List<DoelKaart> getDoelkaarten() {
+        return doelkaarten;
+    }
+
+    public void setDoelkaarten(List<DoelKaart> doelkaarten) {
+        this.doelkaarten = doelkaarten;
     }
     
 }

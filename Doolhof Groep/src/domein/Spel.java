@@ -22,10 +22,14 @@ public final class Spel {
     private List<Speler> spelersGelijk;
     private List<Speler> spelersVolgorde;
     private List<String> spelersNamen;
+    private List<DoelKaart> doelkaarten = new ArrayList<>();
+    private List<DoelKaart> doelkaartenCopy = new ArrayList<>();
+    private List<DoelKaart> doelkaarten2 = new ArrayList<>();
     private Spelbord spelbord;
     List<Gangkaart> gangkaarten = new ArrayList<>();
     char[] schatLijst = {'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x'};
-   // char[] schatLijst2 = {'m', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x'};
+    char[] schatLijst2 = {'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x'}; 
+    char letter;
     private Speler jongsteSpeler;
     private Speler huidigeSpeler;
     private int jongsteSpelerDatum;
@@ -40,6 +44,7 @@ public final class Spel {
     public Spel(Spelbord bord, List<Speler> spelerlijst) {
         spelbord = bord;
         spelers = spelerlijst;
+        //this.maakDoelkaarten();
     }
 
     public String getSpelnaam() {
@@ -49,7 +54,9 @@ public final class Spel {
     public void setSpelnaam(String spelnaam) {
         this.spelnaam = spelnaam;
     }
-
+    
+    
+   
     public void maakSpelbord() {
 
      
@@ -98,10 +105,10 @@ public final class Spel {
                         
                     }
                     Collections.shuffle(gangkaarten);
-                    Gangkaart vrijeGangkaart = gangkaarten.get(gangkaarten.size()-1);
+                    
                    int c = 0;
                    
-                  while ( c <gangkaarten.size()-2){
+                  while ( c <gangkaarten.size()-1){
                     for(int a = 0 ; a<7 ; a++){
                         
                         for(int b = 0 ; b<7; b++){
@@ -131,16 +138,14 @@ public final class Spel {
         spelersNamen = new ArrayList<String>();
         spelersTijdelijk.addAll(spelers);
         jongsteSpelerDatum = 1900;
-        for(int i = 0 ; i< spelersTijdelijk.size() ; i++){
-            if( jongsteSpelerDatum<spelersTijdelijk.get(i).getSpelerGeboortejaar()){
-                jongsteSpelerDatum = spelersTijdelijk.get(i).getSpelerGeboortejaar();
-                
+        for (Speler spelersTijdelijk1 : spelersTijdelijk) {
+            if (jongsteSpelerDatum < spelersTijdelijk1.getSpelerGeboortejaar()) {
+                jongsteSpelerDatum = spelersTijdelijk1.getSpelerGeboortejaar();
             }
-           
-            }
-        for(int j =0 ; j< spelersTijdelijk.size(); j++){
-            if(jongsteSpelerDatum == spelersTijdelijk.get(j).getSpelerGeboortejaar()){
-                spelersNamen.add(spelersTijdelijk.get(j).getSpelernaam());
+        }
+        for (Speler spelersTijdelijk1 : spelersTijdelijk) {
+            if (jongsteSpelerDatum == spelersTijdelijk1.getSpelerGeboortejaar()) {
+                spelersNamen.add(spelersTijdelijk1.getSpelernaam());
             }
         }
         
@@ -173,11 +178,7 @@ public final class Spel {
                 for( int j = 0; j <spelersTijdelijk.indexOf(jongsteSpeler) ; j ++ ){
                     spelersVolgorde.add(spelersTijdelijk.get(j));
                 }
-               /* for(int m = spelersTijdelijk.size()-1; m > spelersTijdelijk.indexOf(jongsteSpeler)  ; m --){
-  
-                    spelersTijdelijk.remove(spelersTijdelijk.get(m));
-                }
-                spelersVolgorde.addAll(spelersTijdelijk);*/
+               
 		return spelersVolgorde;
 	}
    
@@ -188,6 +189,86 @@ public final class Spel {
         return huidigeSpeler;
     }
    
+   public void maakDoelkaarten(){
+       
+        
+        for(int i = 0 ; i < schatLijst2.length ; i ++){
+            schatLijst2[i]= letter;
+            doelkaarten.add(new DoelKaart(letter));
+        }
+        Collections.shuffle(doelkaarten);
+    }
+    
+    public List<DoelKaart> verdeelDoelkaarten(int aantalSpelers , int i){
+        doelkaartenCopy.addAll(doelkaarten);
+        if(aantalSpelers == 4){
+            if(i ==0){
+            for (int j = 0 ; j <6 ; j ++){
+                doelkaarten2.add(doelkaartenCopy.get(j));
+            }
+        }
+        if( i== 1){
+             doelkaarten2.clear();
+            for (int j = 6 ; j <12 ; i ++){
+               doelkaarten2.add(doelkaartenCopy.get(j));
+                
+            }
+        }
+        if( i== 2 ){
+            doelkaarten2.clear();
+            for (int j = 12 ; j <18 ; j++){
+               doelkaarten2.add(doelkaartenCopy.get(j));
+                
+            }
+        }
+         if( i== 3){
+            doelkaarten2.clear();
+            for (int j = 18 ; j <24 ;j ++){
+               doelkaarten2.add(doelkaartenCopy.get(j));
+                
+            }
+        }
+        }
+        if(aantalSpelers == 3){
+            if(i ==0){
+            for (int j = 0 ; j <8 ; j ++){
+                doelkaarten2.add(doelkaartenCopy.get(j));
+            }
+        }
+        if( i== 1){
+             doelkaarten2.clear();
+            for (int j = 8 ; j <16 ; j ++){
+               doelkaarten2.add(doelkaartenCopy.get(j));
+                
+            }
+        }
+        if( i== 2 ){
+            doelkaarten2.clear();
+            for (int j = 16 ; j <24 ; j++){
+               doelkaarten2.add(doelkaartenCopy.get(j));
+                
+            }
+        }
+        
+        }
+        if(aantalSpelers == 2){
+            if(i ==0){
+            for (int j = 0 ; j <12 ; j ++){
+                doelkaarten2.add(doelkaartenCopy.get(j));
+            }
+        }
+        if( i== 1){
+             doelkaarten2.clear();
+            for (int j = 12 ; j <24 ; j ++){
+               doelkaarten2.add(doelkaartenCopy.get(j));
+                
+            }
+        
+        }
+        }
+       return doelkaarten2;
+       
+    }
    
         
          
