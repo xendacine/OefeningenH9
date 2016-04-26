@@ -80,7 +80,7 @@ public class UC2 {
                                 naam = geefNaam(i);
                                 geboortejaar = geefGeboortejaar(i);
                                 kleur = geefKleur(i);        
-    				List<DoelKaart> doelkaarten = dc.verdeelDoelkaarten(aantalSpelers, i);
+    				doelkaarten = dc.verdeelDoelkaarten(aantalSpelers, i);
     				dc.maakSpeler(naam,geboortejaar,kleur, doelkaarten);
                                 
           }
@@ -299,15 +299,16 @@ public class UC2 {
     	System.out.printf("Volgorde spelers na bepaling eerste speler : \n");
     	
     	List<Speler> spelers = dc.geefOverzichtSpelers();
+        
         String spelersNaam = dc.geefHuidigeSpeler(beurt);
     	for (int i = 0; i < spelers.size(); i++)
     	{
             if(spelersNaam.equals(spelers.get(i).getSpelernaam())){
     		System.out.println("\nSpeler " + (i+1) + ": " + spelers.get(i).getSpelernaam()+ " is aan de beurt"+ "\n heeft de volgende doelkaarten: ");
                  for(int j = 0; j < spelers.get(i).getDoelkaarten().size(); j ++){
-                     String doelkaart = spelers.get(i).getDoelkaarten().get(j).toString();
                      
-                     System.out.print(doelkaart+"\n");
+                     
+                     System.out.print(spelers.get(i).getDoelkaarten().get(j).toString()+"\n");
                              
                  }
                         }

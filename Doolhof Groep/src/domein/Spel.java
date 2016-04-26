@@ -24,7 +24,7 @@ public final class Spel {
     private List<String> spelersNamen;
     private List<DoelKaart> doelkaarten = new ArrayList<>();
     private List<DoelKaart> doelkaartenCopy = new ArrayList<>();
-    private List<DoelKaart> doelkaarten2 = new ArrayList<>();
+    private List<DoelKaart> doelkaarten2 ;
     private Spelbord spelbord;
     List<Gangkaart> gangkaarten = new ArrayList<>();
     char[] schatLijst = {'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x'};
@@ -193,13 +193,14 @@ public final class Spel {
        
         
         for(int i = 0 ; i < schatLijst2.length ; i ++){
-            schatLijst2[i]= letter;
+            letter = schatLijst2[i];
             doelkaarten.add(new DoelKaart(letter));
         }
         Collections.shuffle(doelkaarten);
     }
     
     public List<DoelKaart> verdeelDoelkaarten(int aantalSpelers , int i){
+        doelkaarten2 = new ArrayList<>();
         doelkaartenCopy.addAll(doelkaarten);
         if(aantalSpelers == 4){
             if(i ==0){
@@ -258,9 +259,9 @@ public final class Spel {
             }
         }
         if( i== 1){
-             doelkaarten2.clear();
-            for (int j = 12 ; j <24 ; j ++){
-               doelkaarten2.add(doelkaartenCopy.get(j));
+            doelkaarten2.clear();
+            for (int k = 12 ; k <24 ; k ++){
+               doelkaarten2.add(doelkaartenCopy.get(k));
                 
             }
         

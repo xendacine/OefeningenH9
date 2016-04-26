@@ -14,26 +14,24 @@ import java.util.Iterator;
 public class DoelKaart 
 {
     
-    public char schat;
+    public char schat1;
     
     public DoelKaart(char schat){
-       this.schat = schat;
+       this.schat1 = schat;
     }
    public char getSchat() {
-        return schat;
+        return schat1;
     }
 
     public void setSchat(char schat) {
-        this.schat = schat;
+        this.schat1 = schat;
     }
    
     
     @Override
-    public String toString()
-    {   
-        return "Doelkaart:"+schat;
+    public String toString(){
+        return "Doelkaart: "+schat1;
     }
-    
     }
     
 
