@@ -32,6 +32,8 @@ public class UC2 {
     private int geboortejaar;
     private int beurt = 0;
     private List<DoelKaart> doelkaarten = new ArrayList<>();
+    
+    
      public UC2(DomeinController dc,DoolhofApp app,Taal taal)
     {
         this.scanner = new Scanner(System.in);
@@ -88,6 +90,8 @@ public class UC2 {
           dc.bepaalEersteSpeler();
           String[][] bord = dc.toonSpelbord();
           this.maakSpelBord(bord);
+          geefOverzichtSpelers();
+          app.uc3.speelSpel(beurt);
       }
       public String geefNaam(int i){
        String naam1;
@@ -290,7 +294,7 @@ public class UC2 {
             
 
         }
-       geefOverzichtSpelers();
+       
       
     }
        
@@ -323,6 +327,7 @@ public class UC2 {
             }         
     	}
     	System.out.println();
+        
     }
        
       

@@ -130,4 +130,8 @@ public class DomeinController {
     public List<DoelKaart> verdeelDoelkaarten(int aantalSpelers, int i){
         return spel.verdeelDoelkaarten(aantalSpelers, i);
     }
+    
+    public Gangkaart geefLosseGangkaart(){
+        return spel.bepaalLosseGangkaart();
+    }
 }

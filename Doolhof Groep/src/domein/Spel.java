@@ -5,6 +5,7 @@
  */
 package domein;
 
+import java.sql.Array;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -131,6 +132,9 @@ public final class Spel {
                
 
         }
+    public Gangkaart bepaalLosseGangkaart(){
+        return gangkaarten.get(gangkaarten.size()-1);
+    }
     
     public void bepaalEersteSpeler(){
         
@@ -270,6 +274,35 @@ public final class Spel {
        return doelkaarten2;
        
     }
+    
+   /* public Gangkaart[][] schuifGangkaartIn(Array[][] bord, Gangkaart Gangkaart, int xSchuif, int ySchuif, int draaihoek)
+   {
+       Gangkaart[][] tijdelijk = spelbord.bord1;
+       ArrayList<Gangkaart> rijtje = new ArrayList<Gangkaart>();
+       List<Array>[] rijtje2 = (List<Array>[]) new Array[7];
+       
+   
+       controleerInschuifplek(xSchuif, ySchuif);
+       
+       if(ySchuif == 0)
+       {
+           for (int i=0; i<7; i++)
+           {
+               int shift = 0;
+               // move naar rechts
+               tijdelijk[0][1] = x++;
+               
+           }
+//           rijtje = tijdelijk[xSchuif][0];
+//           tijdelijk[xSchuif][1], tijdelijk[xSchuif][2], tijdelijk[xSchuif][3], tijdelijk[xSchuif][4], tijdelijk[xSchuif][5], tijdelijk[xSchuif][6];
+       }
+       return Gangkaart[]][];
+   }
+   
+   public void controleerInschuifplek(int xSchuif, int ySchuif)
+   {
+       
+   }*/
    
         
          

@@ -12,7 +12,7 @@ import java.util.List;
  *
  * @author Sven V
  */
-public final class Speler {
+public final class Speler  {
     private String naam;
     private int geboortejaar;
     private String kleur;
