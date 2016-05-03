@@ -19,7 +19,7 @@ public class Spelbord {
     private char[] schatlijst;
     private String[][] bord;
     Gangkaart[][] bord1 = new Gangkaart[7][7];
-    
+    Speler speler;
    
     
     

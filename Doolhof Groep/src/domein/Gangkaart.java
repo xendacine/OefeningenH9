@@ -23,6 +23,9 @@ public abstract class Gangkaart {
      public Gangkaart(int draaihoek){
         this.draaihoek = draaihoek;
      }
+     public Gangkaart(){
+         
+     }
     public int getDraaihoek() {
         return draaihoek;
     }

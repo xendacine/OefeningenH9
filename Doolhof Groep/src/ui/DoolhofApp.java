@@ -19,6 +19,9 @@ public class DoolhofApp {
    private DomeinController dc;
    private UC1 uc1;
    UC2 uc2;
+   UC6 uc6;
+   UC3 uc3;
+   UC4 uc4;
    private int ingave = 0;
    ResourceBundle tekst;   
    private Scanner scanner = new Scanner(System.in);
@@ -30,7 +33,9 @@ public class DoolhofApp {
      kiesTaal();
      this.uc1 = new UC1(dc,this, taal);
      this.uc2 = new UC2(dc,this, taal);
-     
+     this.uc3 = new UC3(dc,this,taal);
+     this.uc4 = new UC4(dc,this,taal);
+     this.uc6 = new UC6(dc,this,taal);
      int keuze;
      
       
