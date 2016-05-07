@@ -29,7 +29,8 @@ public class UC4 {
     private int huidigeSpeler; 
     private Spel spel;
     private boolean draaien = false;
-    private Gangkaart nieuweLosseGangkaart;
+    private Gangkaart losseGangkaart;
+    private String[][] bord;
     public UC4(DomeinController dc,DoolhofApp app,Taal taal)
     {
         this.scanner = new Scanner(System.in);
@@ -39,12 +40,17 @@ public class UC4 {
         
     }
     public void speelBeurt(int beurt)
-    {   
+    {   draaien = false;
         boolean oneven = false;
         int x= 0;
         int y= 0;
-        Gangkaart losseGangkaart = dc.geefLosseGangkaart() ;
-        String[][] bord = dc.toonSpelbord();
+        if( beurt ==0){
+            losseGangkaart = dc.geefLosseGangkaart();
+        }
+        else{
+        losseGangkaart = dc.nieuweLosseGangkaart();
+         }
+        bord = dc.toonSpelbord();
         app.uc2.maakSpelBord(bord);
         System.out.println("De losse gangkaart : " + losseGangkaart.toString());
          while(!oneven){
@@ -108,6 +114,7 @@ public class UC4 {
          else 
              draaien = true;
              voegGangkaartIn(losseGangkaart, x , y);
+             
          }
          
          
@@ -121,10 +128,10 @@ public class UC4 {
         System.out.println(losseGangkaart.toString()+ " met draaihoek" + losseGangkaart.getDraaihoek());
     }
     public void voegGangkaartIn(Gangkaart losseGangkaart, int x , int y){
-        if(y == 0){
+        
             
-                // dc.schuifGangkaartIn(losseGangkaart, y);
-             
-        }
+             dc.schuifGangkaartIn(losseGangkaart,x, y);
+              
+        
     }
 }

@@ -134,4 +134,11 @@ public class DomeinController {
     public Gangkaart geefLosseGangkaart(){
         return spel.bepaalLosseGangkaart();
     }
+    public void schuifGangkaartIn(Gangkaart losseGangkaart, int x , int y){
+        spelbord.voegGangkaartIn(losseGangkaart, x, y);
+    }
+    
+    public Gangkaart nieuweLosseGangkaart(){
+        return spelbord.nieuweLosseGangkaart();
+    }
 }

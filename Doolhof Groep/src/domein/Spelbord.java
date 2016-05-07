@@ -18,7 +18,9 @@ public class Spelbord {
     private String naam;
     private char[] schatlijst;
     private String[][] bord;
-    Gangkaart[][] bord1 = new Gangkaart[7][7];
+    private Gangkaart[][] bord1 = new Gangkaart[7][7];
+    private Gangkaart[][] bord2 = new Gangkaart[7][7];
+    private Gangkaart nieuweLosseGangkaart;
     Speler speler;
     private SpelerRepository spelerRepo;
    
@@ -40,7 +42,9 @@ public class Spelbord {
     }
     
   
-   
+   public void setBord(Gangkaart[][] bord1){
+      
+   }
 
 
     public void setBord(String[][] bord) {
@@ -60,14 +64,14 @@ public class Spelbord {
     
    
                
-          public String[][] toonSpelbord() 
+     public String[][] toonSpelbord() 
 	{
             
-            List<Speler> spelerlijstje = spelerRepo.geefSpelers(0);
+          //  List<Speler> spelerlijstje = spelerRepo.geefSpelers(0);
             String naamGroen = null, naamGeel = null, naamBlauw = null, naamRood = null;
     
             int w=0; 
-            while(w<=spelerRepo.getAantalSpelers())
+        /*    while(w<spelerRepo.getAantalSpelers())
             {
                 if(speler.getSpelerKleur()=="groen") {
                     naamGroen = speler.getSpelernaam();
@@ -83,7 +87,7 @@ public class Spelbord {
                     }
                 }
                w++;     
-            }
+            }*/
             int v = 0;
             String spel[][] = new String[7][7];
             int x = 0;
@@ -98,22 +102,59 @@ public class Spelbord {
                     y++;
                 }
             x++;
-            spel[0][0]= String.format("%s%s", bord1[0][0].toString(), naamGeel);
+           /* spel[0][0]= String.format("%s%s", bord1[0][0].toString(), naamGeel);
                 spel[0][6]= String.format("%s%s", bord1[0][6].toString(), naamBlauw);
                 spel[6][0]= String.format("%s%s", bord1[6][0].toString(), naamRood);
-                spel[6][6]= String.format("%s%s", bord1[6][6].toString(), naamGroen);
+                spel[6][6]= String.format("%s%s", bord1[6][6].toString(), naamGroen);*/
             }
             // hier moet nog een loop die bepaald welke speler welk kleur heeft
-            if(v<=4)
+          /*  if(v<=4)
             {
 //                spel[0][0]= String.format("%s%s", bord1[0][0].toString(), naamGeel);
 //                spel[0][6]= String.format("%s%s", bord1[0][6].toString(), naamBlauw);
 //                spel[6][0]= String.format("%s%s", bord1[6][0].toString(), naamRood);
 //                spel[6][6]= String.format("%s%s", bord1[6][6].toString(), naamGroen);
-                        }
+                        }*/
                     return spel;
                
-	}	
+	}
+          public void voegGangkaartIn(Gangkaart losseGangkaart, int x, int y){
+               if(x == 0){
+                  nieuweLosseGangkaart = bord1[6][y];
+             for ( int i = 5 ; i <0 ; i --){
+                     
+                      bord1[i+1][y]=bord1[i][y];
+                  }
+              voegToe(losseGangkaart, x ,y);
+              }
+               if( y== 0){
+                   nieuweLosseGangkaart = bord1[x][6] ;
+                   for( int i = 5 ; i < 0; i--)
+                   {
+                       bord1[x][i+1]= bord1[x][i];
+                   }
+                   voegToe(losseGangkaart, x ,y);
+               }
+               if(x == 6){
+                   nieuweLosseGangkaart =bord1[0][y];
+                   for( int i = 1; i < bord1.length  ; i ++){
+                       bord1[i-1][y]= bord1[i][y];
+                   }
+                   voegToe(losseGangkaart, x ,y);
+               }
+               if( y == 6){
+                   nieuweLosseGangkaart = bord1[x][0];
+                   for( int i = 1 ; i<bord1.length-1 ; i++){
+                       bord1[x][i-1]= bord1[x][i];
+                   }
+                   voegToe(losseGangkaart, x ,y);
+               }  
+              
+          }
+          
+          public Gangkaart nieuweLosseGangkaart(){
+              return nieuweLosseGangkaart;
+          }
         
     }
     
