@@ -53,19 +53,19 @@ public class UC2 {
     	{
     		try
     		{
-    			System.out.printf("Geef het aantal deelnemers in: ");
+    			System.out.println(taal.getTekst().getString("aantalSpelersIngeven"));
     			aantalSpelers = scanner.nextInt();
 				dc.stelAantalSpelersIn(aantalSpelers);
     			controle_spelers = true;
     		}
     		catch(InputMismatchException imme)/* Controle op letters */
     		{
-    			System.out.println("Gelieve een cijfer in te geven!");
+    			System.out.println(taal.getTekst().getString("fouteIngaveAantalSpelersCijfer"));
     			scanner.nextLine();
     		}
     		catch(IllegalArgumentException iae)/* Controle op aantal spelers */
     		{
-    			System.out.println("Gelieve een correct aantal spelers in te geven");
+    			System.out.println(taal.getTekst().getString("foutingaveAantalSpelersTeGroot"));
     			scanner.nextLine();
     		}
     	}
@@ -98,23 +98,24 @@ public class UC2 {
         int naamLengte;
           
                    
-        
-          System.out.println("Gelieve de naam van speler "+(i+1)+" in te geven:");
+          System.out.println(taal.getTekst().getString("naamIngeven1")+(i+1)+taal.getTekst().getString("naamIngeven2"));
+          
+//          System.out.println("Gelieve de naam van speler "+(i+1)+" in te geven:");
                      naam1 = scanner.next();  
                       naamLengte = naam1.length();
                     if (naamLengte < 2) {
-                     System.out.println("De naam is te kort! ");
+                     System.out.println(taal.getTekst().getString("TeKorteNaam"));
                             
                      naam1 = geefNaam(i);}
                     
                     if(dc.bestaatSpeler(naam1)){
-                        System.out.println("De naam is niet uniek! ");
+                        System.out.println(taal.getTekst().getString("duplicaatNaam"));
                         naam1= geefNaam(i);
                     }
                     for ( int j =0 ; j < naam1.length() ; j ++){
                         char deeltje = naam1.charAt(j);
                         if(!Character.isLetter(deeltje)){
-                            System.out.print("De naam bevat een cijfer, leesteken of spatie!");
+                            System.out.print(taal.getTekst().getString("cijferInNaam"));
                            naam1 = geefNaam(i);
                         }
                         
@@ -131,23 +132,25 @@ public class UC2 {
       public int geefGeboortejaar(int i){
           int jaar = 0;
           try{
-          System.out.println("Geef de geboortejaar in van speler"+(i+1)+":");
+              System.out.print(taal.getTekst().getString("geboorteIngeven1")+(i+1)+":");
+//              System.out.print(taal.getTekst().getString("geboorteIngeven2"));
+//          System.out.println("Geef de geboortejaar in van speler"+(i+1)+":");
           
           jaar = scanner.nextInt();
           }
           
          catch(InputMismatchException imme)/* Controle op letters */
     		{
-    			System.out.println("Gelieve een geldige geboortedatum in te geven!");
+    			System.out.println(taal.getTekst().getString("ongeldigeGeboortedatum"));
     			scanner.nextLine();
     		}
           if(jaar>2010 ){
-              System.out.println("Je moet minstens 7 jaar zijn!");
+              System.out.println(taal.getTekst().getString("teJong"));
               jaar = geefGeboortejaar(i);
           }
           
          if(jaar<1926){
-                           System.out.println("Je mag maximaal 90 jaar zijn!");
+                           System.out.println(taal.getTekst().getString("teOud"));
                            jaar = geefGeboortejaar(i);
          }
             
@@ -158,21 +161,23 @@ public class UC2 {
           
       }/** Laat de gebruiker toe om een geboortejaar toe te wijzen aan een spelerobject, samen met de bijhorende controles.**/
       public String geefKleur(int i){
-          System.out.println("Geef de kleur in van speler"+(i+1)+"(rood, geel, groen, blauw):");
+          System.out.println(taal.getTekst().getString("geefKleurIn1")+(i+1)+taal.getTekst().getString("verschillendeKleuren"));
+//          System.out.println("Geef de kleur in van speler"+(i+1)+"(rood, geel, groen, blauw):");
           String kleur1= scanner.next();
           
           if((!kleur1.equals("blauw"))){
               if((!kleur1.equals("rood"))){
                   if((!kleur1.equals("groen"))){
                       if((!kleur1.equals("geel"))){
-            System.out.println("Kies een juiste kleur!");
+            System.out.println(taal.getTekst().getString("kleurFout")); // "Kies een juiste kleur!");
                            kleur1 = geefKleur(i);
                       }
                   }
               }
          }
           if(dc.bestaatKleur(kleur1)){
-                        System.out.println("De kleur is al gekozen! ");
+                        System.out.println(taal.getTekst().getString("alGekozenKleur"));
+//                        System.out.println("De kleur is al gekozen! ");
                         kleur1= geefKleur(i);
                     }
         
@@ -183,8 +188,8 @@ public class UC2 {
       
       
        public void maakSpelBord(String[][]bord){
-           
-        System.out.println("HET SPELBORD:\n");
+        System.out.printf("%s%n",taal.getTekst().getString("hetSpelBordTitel"));
+//        System.out.println("HET SPELBORD:\n");
         int x = 0;
         while (x < 7) {
             int y = 0;
@@ -300,7 +305,8 @@ public class UC2 {
        
        public void geefOverzichtSpelers()
     {
-    	System.out.printf("Volgorde spelers na bepaling eerste speler : \n");
+        System.out.printf("%s%n", taal.getTekst().getString("volgordeSpelers1"));
+//    	System.out.printf("Volgorde spelers na bepaling eerste speler : \n");
     	
     	List<Speler> spelers = dc.geefOverzichtSpelers();
         
@@ -308,7 +314,9 @@ public class UC2 {
     	for (int i = 0; i < spelers.size(); i++)
     	{
             if(spelersNaam.equals(spelers.get(i).getSpelernaam())){
-    		System.out.println("\nSpeler " + (i+1) + ": " + spelers.get(i).getSpelernaam()+ " is aan de beurt"+ "\n heeft de volgende doelkaarten: ");
+                System.out.printf("%s %d %s %s %s %n%s%n%", taal.getTekst().getString("speler"), (i+1), ": ", 
+                        spelers.get(i).getSpelernaam(), taal.getTekst().getString("beurt2"), taal.getTekst().getString("beurt3"));
+//    		System.out.println("\nSpeler " + (i+1) + ": " + spelers.get(i).getSpelernaam()+ " is aan de beurt"+ "\n heeft de volgende doelkaarten: ");
                  for(int j = 0; j < spelers.get(i).getDoelkaarten().size(); j ++){
                      
                      
@@ -318,7 +326,8 @@ public class UC2 {
                         }
                        
             else {
-                System.out.println("\nSpeler " + (i+1) + ": " + spelers.get(i).getSpelernaam());
+                System.out.printf("%s %d : %s", taal.getTekst().getString("Speler"), (i+1), spelers.get(i).getSpelernaam());
+//                System.out.println("\nSpeler " + (i+1) + ": " + spelers.get(i).getSpelernaam());
                  for(int j = 0; j < spelers.get(i).getDoelkaarten().size(); j ++){
                      String doelkaart = spelers.get(i).getDoelkaarten().get(j).toString();
                      
