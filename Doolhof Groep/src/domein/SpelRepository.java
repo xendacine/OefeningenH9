@@ -21,16 +21,16 @@ public class SpelRepository {
     public SpelRepository() {
         mapper = new SpelMapper();
         spel = new ArrayList<>();
-    }
+    } /** Publieke constructor die een spelrepository aanmaakt **/
     
  
     public List<Spel> laadBestaandSpel(){
         return mapper.geefSpellen();
-    }
+    } /** Dit geeft een lijst met spelen terug, om zo de bestaande spelen te kunnen selecteren en laden**/
     public Spel getSpel(String spelnaam)
     {
         Spel gevondenSpel = mapper.getSpel(spelnaam);
 
         return gevondenSpel;
-    }
+    } /** om dan achteraf (na laadBestaandSpel() ) het gekozen spel terug te geven en de info te tonen  **/
 }
