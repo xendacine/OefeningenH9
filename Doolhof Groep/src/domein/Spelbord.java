@@ -31,25 +31,35 @@ public class Spelbord {
     public Spelbord(String naam){
         this.naam = naam;
 
-    }
+    } /** Constructor die spelbord aanmaakt met Parameter Naam**/
     public Spelbord() {
-    }
+    } /** Lege constructor om een spelbord aan te maken die nog geen naam heeft,
+     gebruikt om een tijdelijke lokale versie van een spel te maken vooraleer we het naar de database sturen**/
 
-
-
+    /**
+     * Lege constructor om een spelbord aan te maken die nog geen naam heeft,
+     gebruikt om een tijdelijke lokale versie van een spel te maken vooraleer we het naar de database sturen
+     * @return
+     */
     public String[][] getBord() {
         return bord;
-    }
+    } /** Get methode om het bord terug te krijgen **/
     
-  
-   public void setBord(Gangkaart[][] bord1){
+    /**
+     * Get methode om het bord terug te krijgen
+     * @param bord1
+     */
+    public void setBord(Gangkaart[][] bord1){
       
-   }
+   } /** laat toe om een spelbord aan te maken, set een spelbord gebaseerd op een array van Gangkaarten (Meer bepaald 2 dimentioneel)**/
 
-
+    /**
+     * laat toe om een spelbord aan te maken, set een spelbord gebaseerd op een array van Gangkaarten (Meer bepaald 2 dimentioneel)
+     * @param bord
+     */
     public void setBord(String[][] bord) {
         this.bord = bord;
-    }
+    } /** set, en spelbord dat gebaseerd is op een bestaand spelbord**/
     
     public void voegToe(Gangkaart gangkaart,int x , int y){
         
@@ -57,7 +67,7 @@ public class Spelbord {
         bord1[x][y] = gangkaart;
       
         
-    }
+    }/** Laat toe om bepaalde gangkaarten toe te voegen aan het spelbord, dit is gebruikt tijdens het inschuiven en het plaatsen van de gangkaarten op het lege spelbord **/
     
         
     
@@ -117,7 +127,7 @@ public class Spelbord {
                         }*/
                     return spel;
                
-	}
+	} /** Toont het opgevulde spelbord **/
           public void voegGangkaartIn(Gangkaart losseGangkaart, int x, int y){
                if(x == 0){
                   nieuweLosseGangkaart = bord1[6][y];
@@ -150,11 +160,11 @@ public class Spelbord {
                    voegToe(losseGangkaart, x ,y);
                }  
               
-          }
+          }/** Voegt de losse gangkaart in en past het bestaande spelbord aan.**/
           
           public Gangkaart nieuweLosseGangkaart(){
               return nieuweLosseGangkaart;
-          }
+          } /** Zorgt dat de gangkaart die uitgeschoven word hier tijdelijk als nieuwelosse wordt opgeslaan om dan door de andere methode terug aanroepbaar te zijn **/
         
     }
     
