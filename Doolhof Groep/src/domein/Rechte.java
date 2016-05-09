@@ -15,14 +15,14 @@ public class Rechte extends Gangkaart {
         super(draaihoek);
        
     }/** Default constructor van Rechte met variabele Draaihoek
-     Deze constructor roept de default constructor uit Gangkaart aan 
-     Meer bepaald de constructor die volgend type aanmaakt: Gangkaart(int draaihoek)**/
+     * Deze constructor roept de default constructor uit Gangkaart aan 
+     * Meer bepaald de constructor die volgend type aanmaakt: Gangkaart(int draaihoek)**/
     
     @Override
     public String toString()
     {   
         return "Rechte";
     } /** Verplichte toString methode, 
-     returnt gewoon de rechte **/
+     * returnt gewoon de rechte **/
     
 }

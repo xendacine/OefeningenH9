@@ -38,11 +38,11 @@ public final class Speler  {
         setSpelerGeboortejaar(geboortejaar);
         setDoelkaarten(Doelkaarten);
     } /** maakt een speler aan met alle parameters: Naam, geboortejaar, kleur, en doelkaarten
-     deze parameters worden allemaal toegewezen aan de hand van setmethodes.**/
+     * deze parameters worden allemaal toegewezen aan de hand van setmethodes.**/
     
     /**
      * maakt een speler aan met alle parameters: Naam, geboortejaar, kleur, en doelkaarten
-     deze parameters worden allemaal toegewezen aan de hand van setmethodes.
+     * deze parameters worden allemaal toegewezen aan de hand van setmethodes.
      * @return
      */
     public String getSpelernaam() {
@@ -72,7 +72,7 @@ public final class Speler  {
     public void setSpelerGeboortejaar(int geboortejaar) {
         this.geboortejaar = geboortejaar;
     } /** stelt de speler zijn geboortejaar in, achteraf wijzigen is niet meer mogelijk aangezien dit een final attribuut is. 
-     Mensen worden niet op 2 verschillende dagen geboren, indien de speler dit wenst te wijzigen moet hij een systeembeheerder contacteren**/
+     * Mensen worden niet op 2 verschillende dagen geboren, indien de speler dit wenst te wijzigen moet hij een systeembeheerder contacteren**/
    
     /**
      * stelt de speler zijn geboortejaar in, achteraf wijzigen is niet meer mogelijk aangezien dit een final attribuut is.Mensen worden niet op 2 verschillende dagen geboren, indien de speler dit wenst te wijzigen moet hij een systeembeheerder contacteren
@@ -89,11 +89,11 @@ public final class Speler  {
     public void setSpelerKleur(String kleur) {
         this.kleur = kleur;
     } /** laat toe om de speler een kleur toe te wijzen, dit is verplicht maar achteraf niet meer beschikbaar. Wordt niet meer aangeroepen in het programma achteraf wegens Final attribuut,
-     indien de speler van kleur wil wijzigen moet hij een systeembeheerder contacteren**/
+     * indien de speler van kleur wil wijzigen moet hij een systeembeheerder contacteren**/
 
     /**
      * laat toe om de speler een kleur toe te wijzen, dit is verplicht maar achteraf niet meer beschikbaar.Wordt niet meer aangeroepen in het programma achteraf wegens Final attribuut,
-     indien de speler van kleur wil wijzigen moet hij een systeembeheerder contacteren
+     * indien de speler van kleur wil wijzigen moet hij een systeembeheerder contacteren
      * @return
      */
     public List<DoelKaart> getDoelkaarten() {
@@ -107,7 +107,7 @@ public final class Speler  {
     public void setDoelkaarten(List<DoelKaart> doelkaarten) {
         this.doelkaarten = doelkaarten;
     } /** laat toe om een group van doelkaarten toe te wijzen aan een speler, ook om doelkaarten een bepaalde schat te geven. 
-     Achteraf niet meer wijzigbaar door final attribuut**/
+     * Achteraf niet meer wijzigbaar door final attribuut**/
     
 }
     

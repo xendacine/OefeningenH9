@@ -30,9 +30,10 @@ public class Taal {
 					 "Veuillez entrez un choix valable!		" +
 					 "Please enter a valid choice!");
 		}
-	}
-	public ResourceBundle getTekst() { return tekst; }
-	public void setTekst(ResourceBundle tekst) { this.tekst = tekst; }
+	} /** Dit is de methode die toelaat dat de gebruiker in het begin van het programma een taal kiest, 
+         * momenteel enkel in console versie want GUI loopt achter op schema doordat ik werk moet overnemen van andere groepsleden**/
+	public ResourceBundle getTekst() { return tekst; } /** geeft de tekst weer uit de resourcebundles die overeenkomt met de bepaalde woorden**/
+	public void setTekst(ResourceBundle tekst) { this.tekst = tekst; } /** stelt de taal in en geeft de juiste bijhorende tekst weer**/
 }
 
 

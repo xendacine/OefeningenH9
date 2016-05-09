@@ -133,7 +133,7 @@ public final class Spel {
                
 
         } /** Maakt een spelbord een die bestaat uit gangkaarten; 
-         verschillende controleermethodes en tellers leiden tot de opvulling van het bord, zo worden de vaste kaarten in HardCode geplaatst en de variable kaarten met random parameters gemaakt. **/
+         * verschillende controleermethodes en tellers leiden tot de opvulling van het bord, zo worden de vaste kaarten in HardCode geplaatst en de variable kaarten met random parameters gemaakt. **/
     public Gangkaart bepaalLosseGangkaart(){
         return gangkaarten.get(gangkaarten.size()-1);
     }
@@ -173,7 +173,7 @@ public final class Spel {
         }
         
     }/** Deze speler bepaalt de eerste speler van een bepaald spel. En geeft het tijdelijk terug,
-     Dit word behaalt door een geneste if structuur **/
+     * Dit word behaalt door een geneste if structuur **/
     
    public List<Speler> bepaalSpelersVolgorde()
 	{
