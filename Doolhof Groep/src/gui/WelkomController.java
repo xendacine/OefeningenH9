@@ -48,6 +48,6 @@ public WelkomController()
             System.out.println("Scherm kan niet geladen worden");
             throw new RuntimeException();
         }
-    }
+    } /** Public version van de welkomcontroller**/
 }
 

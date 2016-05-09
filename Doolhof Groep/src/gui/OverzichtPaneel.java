@@ -30,7 +30,7 @@ public class OverzichtPaneel extends VBox
         this.dc = dc;
         this.details = details;
         buildGui();
-    }
+    } /** Maakt het overzichtpaneel aan, maakt constructor en zorgt voor de initialisatie van de domeincontroller **/
     
     private void buildGui()
     {
@@ -57,5 +57,5 @@ public class OverzichtPaneel extends VBox
         this.getChildren().addAll(new Label("Overzicht:"), lijst);
         this.setPadding(new Insets(25,5,25,5));
         this.setSpacing(10);
-    }
+    } /** Maakt de gui aan, vast deel, zorgt voor scanner.**/
 }

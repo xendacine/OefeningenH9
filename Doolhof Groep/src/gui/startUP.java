@@ -12,4 +12,4 @@ package gui;
 public class startUP 
 {
     
-}
+} /** dit bestand mag eigenlijk weg, maar dit is niet verwijderbaar door ons als gebruiker**/

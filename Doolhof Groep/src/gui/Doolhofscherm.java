@@ -30,7 +30,7 @@ public class Doolhofscherm extends VBox
     {
         this.dc = dc;
         buildGui();
-    }
+    } /** Default constructor die DC aanmaakt en de Buildgui aanroept voor ons doolhofscherm**/
     
     private void buildGui()
     {
@@ -71,15 +71,16 @@ public class Doolhofscherm extends VBox
             
                 
              
-    }
+    } /** Meer uitgebreide buildgui voor dit scherm, met selecteerbare elementen en al dan niet editbare velden,
+     * dit is ook gelinkt aan de eventhandling klasse in gui**/
     
     public void update(int index)
     {
-        String details = "testje";
-        double waarde = 5;
-        txaUitleg.setText(details);
-        txfKosten.setText(String.format("De kost bedraagt %.2f", waarde));
-    }
+        String details = "Test-Uitvoer";
+        double waarde = 5; //tijdelijke waarde vanuit oefeningen geïnspireerd.
+        txaUitleg.setText(details); //dit veld txaUitleg moet weg en vervangen worden door iets nuttigs, want we hebben geen waardes
+        txfKosten.setText(String.format("De kost bedraagt %.2f", waarde)); // zelfde uitleg als vorige lijn 
+    } /** Kijkt of je bepaalde velden kan updaten, indien dit werkt gaat ook effectief updaten van de velden**/
 
     
 }

@@ -20,11 +20,11 @@ public class EventHandling implements EventHandler<ActionEvent>
     public EventHandling(Doolhofscherm scherm)
     {
         this.scherm = scherm;
-    }
+    } /** Maakt gewoon een default scherm aan**/
 
     EventHandling() {
-        System.out.println("juuuuu");
-    }
+        System.out.println("Event-Handling test Message Class gui.Eventhandling.java");
+    } /** Test van de eventhandling met een specifiek bericht om te zien of hij de juiste klasse aanroept.**/
     
 
     @Override
@@ -35,6 +35,8 @@ public class EventHandling implements EventHandler<ActionEvent>
         
         
         
-    }
+    } /** Maakt de combobox aan en laat toe om een bepaald vakje te selecteren om zo een juiste spel te selecteren gebaseerd 
+     * op het hoeveelste element of index je gekozen had, 
+     * dit wordt doorgegeven aan geefSpel(int spelID) waarbij spelID = index **/
     
 }

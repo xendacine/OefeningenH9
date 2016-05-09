@@ -24,7 +24,7 @@ public class DetailPaneel extends GridPane
     {
         this.dc = dc;
         buildGui();
-    }
+    } /** Main deel van de Gui in .java versie**/
     
     private void buildGui()
     {
@@ -46,11 +46,12 @@ public class DetailPaneel extends GridPane
         this.setPadding(new Insets(25,5,25,5));
         this.setVgap(20);
         this.setHgap(5);
-    }
+    } /** Dit maakt het volledige paneel aan met de gegeven lay-out**/
     public void update(String[] info)
     {
         txfSpelernaam.setText("hey");
 //        txfSpeler2.setText(info[1]);
 //        txfSpeler3.setText(info[2]);
-    }
+    } /** Update van de speler velden, dit zegt tijdelijk hey als test om te zien of de update methode werkt, dit moet de spelernaam weergeven, 
+     * maar deze methode is op dit moment nog niet aanwezig / nog niet werkende **/
 }

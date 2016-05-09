@@ -20,7 +20,7 @@ public class HoofdPaneel extends HBox
     {
         this.dc = dc;
         buildGui();
-    }
+    } /** Maakt de default constructor voor een hoofdpaneel aan te maken. **/
     
     private void buildGui()
     {
@@ -28,6 +28,6 @@ public class HoofdPaneel extends HBox
         OverzichtPaneel overzicht = new OverzichtPaneel(dc, details);
         
         this.getChildren().addAll(overzicht, details);
-    }
+    } /** zoals alle methodes, maakt een overzicht weer, en bouwt de grafische weergave van de gui **/
             
 }
