@@ -40,6 +40,6 @@ public class SpelerMapper {
         }
 
         return spelerlijst;
-    }
+    }/** Mapper die een lijst met speler objecten terug geeft **/
  
 }

@@ -12,4 +12,4 @@ package persistentie;
 public class Connectie {
     
     public static final String JDBC_URL = "jdbc:mysql://db4free.net:3306/doolhofp1g66?user=p1g66&password=liesbetje";
-}
+} /** Connectie test met de database**/

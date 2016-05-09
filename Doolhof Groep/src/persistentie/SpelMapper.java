@@ -45,9 +45,13 @@ public class SpelMapper {
         
 
         return spellijst;
- }
+ } /** De mapper geeft hier een lijst met alle spellen terug**/
      
-     public Spel getSpel(String Spelnaam){
+    /**
+     * De mapper geeft hier een lijst met alle spellen terug
+     * @param Spelnaam
+     */
+    public Spel getSpel(String Spelnaam){
         Spel spel = null;
 
        try (Connection conn = DriverManager.getConnection(Connectie.JDBC_URL)) {
@@ -68,5 +72,6 @@ public class SpelMapper {
         }
 
         return spel;
-     }
+     } 
+     /** Selecteert 1 spel gebaseerd op spelnaam en geeft het spelobject terug **/
 }
