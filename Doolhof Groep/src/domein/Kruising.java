@@ -19,12 +19,12 @@ public class Kruising extends Gangkaart{
         
         
     } /** Constructor die een kruising aanmaakt met een Draaihoek en een schat 
-     Deze methode roept de Super-Constructor aan omdat er een identieke constructor aanwezig is in de klasse Gangkaart**/
+     * Deze methode roept de Super-Constructor aan omdat er een identieke constructor aanwezig is in de klasse Gangkaart**/
     
     @Override
     public String toString()
     {   
         return "Kruising"+schat;
     } /** Verplichte tostring Methode
-     Geeft een kruising terug en een schat indien het een schat heeft**/ 
+     * Geeft een kruising terug en een schat indien het een schat heeft**/ 
 }

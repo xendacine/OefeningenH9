@@ -94,34 +94,34 @@ public class DomeinController {
 	{
 		spelerRepo.setAantalSpelers(aantal);
 	}/** Stelt de instellingen van de lokal Repository bij, 
-         Meer bepaald het aantal spelers; dit is belangrijk voor verschillende testen mee uit te voeren voor de crashes bij verschillende delers bij 
-         verschillende speleraantallen.
-         De effectieve code bevindt zich in de klasse SpelerRepositoy**/ 
+         * Meer bepaald het aantal spelers; dit is belangrijk voor verschillende testen mee uit te voeren voor de crashes bij verschillende delers bij 
+         * verschillende speleraantallen.
+         * De effectieve code bevindt zich in de klasse SpelerRepositoy**/ 
    
    public void maakSpeler(String naam,int geboortejaar, String kleur, List<DoelKaart> doelkaarten) 
 	{
 		spelerRepo.maakSpeler(naam,geboortejaar,kleur, doelkaarten);
 	} /** Maakt een lokale / publieke speler aan (In de huidige status een lokale speler, die dan later gepushed kan worden naar de publieke database
-         deze speler gaat verloren indien het programma vroegtijdig wordt agesloten / crasht zonder dat de gebruiker op opslaan heeft geklikt. 
-         De effectieve code bevindt zich in de klasse SpelerRepository**/
+         * deze speler gaat verloren indien het programma vroegtijdig wordt agesloten / crasht zonder dat de gebruiker op opslaan heeft geklikt. 
+         * De effectieve code bevindt zich in de klasse SpelerRepository**/
   
    public void bepaalEersteSpeler(){
        spel.bepaalEersteSpeler();
    } /** Deze methode bepaalt de eerste speler gebaseerd op de geboortedatum, 
-    de effectieve code bevindt zich in de klasse spel en wordt daar verder uitgewerkt. **/
+    * de effectieve code bevindt zich in de klasse spel en wordt daar verder uitgewerkt. **/
    
    public List<Speler> geefOverzichtSpelers(){
        return spelerlijst = spel.bepaalSpelersVolgorde();
    } /** Deze methode werkt samen met de klasse spel, 
-    zorgt voor een return List die bestaat uit speler-objecten. 
-    Dit is belangrijk bij methodes die overzichten bepalen, en bij de GUI**/
+    * zorgt voor een return List die bestaat uit speler-objecten. 
+    * Dit is belangrijk bij methodes die overzichten bepalen, en bij de GUI**/
   
    
     public Speler bepaalSpelerAanBeurt(int beurt)
     {
         return spel.bepaalSpelerAanBeurt(beurt);
     }/** dit is een DC methode die 
-     De effectieve code bevindt zich in de klasse spel**/
+     * De effectieve code bevindt zich in de klasse spel**/
      
     /** Geeft aan welke speler in
      * @param beurt deze beurt mag spelen.
