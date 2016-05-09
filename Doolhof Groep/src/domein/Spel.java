@@ -40,21 +40,22 @@ public final class Spel {
       
         setSpelnaam(spelnaam);
 
-    }
+    }/** Constructor van Spel met parameter Spelnaam
+     Dit roept ook op de setSpelnaam(spelnaam) om ervoor te zorgen dat alles vlot verloopt**/
 
     public Spel(Spelbord bord, List<Speler> spelerlijst) {
         spelbord = bord;
         spelers = spelerlijst;
         //this.maakDoelkaarten();
-    }
+    }/** Spel constructor met parameters spelbord (type bord) en een spelerlijst (type List Speler )**/
 
     public String getSpelnaam() {
         return spelnaam;
-    }
+    } /** get methode die spelnaam teruggeeft **/
 
     public void setSpelnaam(String spelnaam) {
         this.spelnaam = spelnaam;
-    }
+    } /** stelt de spelnaam in**/
     
     
    
@@ -131,7 +132,8 @@ public final class Spel {
 
                
 
-        }
+        } /** Maakt een spelbord een die bestaat uit gangkaarten; 
+         verschillende controleermethodes en tellers leiden tot de opvulling van het bord, zo worden de vaste kaarten in HardCode geplaatst en de variable kaarten met random parameters gemaakt. **/
     public Gangkaart bepaalLosseGangkaart(){
         return gangkaarten.get(gangkaarten.size()-1);
     }
@@ -170,7 +172,8 @@ public final class Spel {
                 }
         }
         
-    }
+    }/** Deze speler bepaalt de eerste speler van een bepaald spel. En geeft het tijdelijk terug,
+     Dit word behaalt door een geneste if structuur **/
     
    public List<Speler> bepaalSpelersVolgorde()
 	{
@@ -184,14 +187,14 @@ public final class Spel {
                 }
                
 		return spelersVolgorde;
-	}
+	}/** Bepaalt de volgorde van de overgebleven spelers. **/
    
    public Speler bepaalSpelerAanBeurt(int beurt)
     {
         int beurtSpeler = (beurt) % spelersVolgorde.size();
         huidigeSpeler = spelersVolgorde.get(beurtSpeler);
         return huidigeSpeler;
-    }
+    } /** Bepaalt welke speler de volgende beurt mag spelen gebaseerd op het nummer van de beurt die gespeeld moet worden.  **/
    
    public void maakDoelkaarten(){
        
@@ -201,7 +204,7 @@ public final class Spel {
             doelkaarten.add(new DoelKaart(letter));
         }
         Collections.shuffle(doelkaarten);
-    }
+    } /** Dit maakt alle doelkaarten aan, gebaseerd op een lijst met schatten, het verdelen hiervan gebeurt in de andere methode: verdeelDoelkaarten **/
     
     public List<DoelKaart> verdeelDoelkaarten(int aantalSpelers , int i){
         doelkaarten2 = new ArrayList<>();
@@ -273,7 +276,7 @@ public final class Spel {
         }
        return doelkaarten2;
        
-    }
+    } /** Deze methode verdeelt de doelkaarten over de spelers, gebaseerd op de hoeveelheid spelers die aanwezig zijn in het huidige spel.  **/
     
    /* public Gangkaart[][] schuifGangkaartIn(Array[][] bord, Gangkaart Gangkaart, int xSchuif, int ySchuif, int draaihoek)
    {
