@@ -34,7 +34,7 @@ public class UC3 {
         this.app = app;
         this.taal = taal;
         
-    }
+    }/** Initialisatie van de Domeincontroller in UC3**/
     
     public void speelSpel(int beurt){
            beurt1 = beurt;
@@ -58,5 +58,5 @@ public class UC3 {
               speelSpel(beurt1); 
           }
           }
-      }
+      } /** Hier kan de speler een beurt spelen, en kiezen of hij het spel wil bewaren. **/
 }

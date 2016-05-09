@@ -41,7 +41,7 @@ public class UC2 {
         this.app = app;
         this.taal = taal;
         
-    }
+    }/** Initialisatie van de Domeincontroller in UC2**/
      
       public void startNieuwSpel(){
         dc.wenstSpelAanTemaken();
@@ -73,7 +73,7 @@ public class UC2 {
     	
     	geeftGegevensIn();
     			
-      }
+      }/**Deze methode laat toe om een nieuw spel lokaal aan te maken, later wordt dit spel mogelijks opgeslaan in de database (Zie uc6 en 7) **/
       
       
       public void geeftGegevensIn(){
@@ -92,7 +92,7 @@ public class UC2 {
           this.maakSpelBord(bord);
           geefOverzichtSpelers();
           app.uc3.speelSpel(beurt);
-      }
+      } /** Laat de gebruiker toe om bepaalde gegevens in te voeren en deze in de lokale versie van het spel op te slaan **/
       public String geefNaam(int i){
        String naam1;
         int naamLengte;
@@ -126,7 +126,7 @@ public class UC2 {
 
         return naam1;
            
-      }
+      } /** Laat de gebruiker toe om namen aan spelers toe te wijzen**/
       
       public int geefGeboortejaar(int i){
           int jaar = 0;
@@ -156,7 +156,7 @@ public class UC2 {
          
           
           
-      }
+      }/** Laat de gebruiker toe om een geboortejaar toe te wijzen aan een spelerobject, samen met de bijhorende controles.**/
       public String geefKleur(int i){
           System.out.println("Geef de kleur in van speler"+(i+1)+"(rood, geel, groen, blauw):");
           String kleur1= scanner.next();
@@ -178,7 +178,7 @@ public class UC2 {
         
            
             return kleur1;
-      }
+      } /** Laat de gebruiker toe om een kleur toe te wijzen aan de lokale spelerobjecten, inclusief bijhorende controlemethodes.**/
       
       
       
@@ -296,7 +296,7 @@ public class UC2 {
         }
        
       
-    }
+    }/** Deze methode maakt een spelbord aan, vult ze op met de VASTE kaarten **/
        
        public void geefOverzichtSpelers()
     {
@@ -328,7 +328,7 @@ public class UC2 {
     	}
     	System.out.println();
         
-    }
+    } /** Deze methodes geeft een overzicht van de doelkaarten per speler weer**/
        
       
 

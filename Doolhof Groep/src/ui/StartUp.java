@@ -19,5 +19,5 @@ public class StartUp {
                 DomeinController dc = new DomeinController();
                 Taal taal = new Taal();
                 DoolhofApp app = new DoolhofApp(dc,taal);
-	}
+	} /** Start ook de gewone versie op??**/
 }

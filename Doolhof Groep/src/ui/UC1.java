@@ -33,7 +33,7 @@ public class UC1 {
         this.taal = taal;
         
         
-    }
+    } /** Initialisatie van de Domeincontroller in UC1**/
      
      public void startSpel(){
         int keuze;
@@ -52,7 +52,7 @@ public class UC1 {
            }
             
    
-     }
+     }/** Maken en gebruiken van de methode startspel, die toelaat om het spel te starten **/
      
      
    private int geefKeuze() {
@@ -72,7 +72,7 @@ public class UC1 {
             scanner.nextLine();
         }
         return ingave;
-   }
+   } /** Laat toe om keuze te maken tussen het laden van een bestaand spel, maken van een nieuw spel of stoppen met deze loop **/
       
  
   
@@ -94,7 +94,7 @@ public class UC1 {
             gekozen = keuzeSpel(spellen);
         }
         return gekozen;
-    }
+    } /** Laad een bestaand spel in **/
   
   public String keuzeSpel(String[] spellen) {
       
@@ -111,7 +111,7 @@ public class UC1 {
         }
         geefSpelers(spelID);
         return gekozen;
-    }
+    } /** kiest een spel, met gekozen lengte van aantal spelers, **/
   
   public void geefSpelers(int spelID){
         spelers = dc.getSpelers(spelID);
@@ -128,7 +128,7 @@ public class UC1 {
             }
            
     }
-  }
+  }/** Geeft de spelers terug van een spel, dankzij de argumenten SpelId**/
   
   
   

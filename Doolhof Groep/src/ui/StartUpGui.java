@@ -26,7 +26,7 @@ public class StartUpGui extends Application {
                 DomeinController dc = new DomeinController();
                 Taal taal = new Taal();
                 DoolhofApp app = new DoolhofApp(dc,taal);
-    }
+    } /** Dit start de console versie om een of andere reden**/
 
     /**
      * @param args the command line arguments

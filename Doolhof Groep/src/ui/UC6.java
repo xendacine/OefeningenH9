@@ -29,7 +29,7 @@ public class UC6 {
         this.app = app;
         this.taal = taal;
         
-    }
+    }/** Initialisatie van de Domeincontroller in UC6**/
     
     public void bewaarSpel(){
         System.out.println("Geef een naam voor het spel:");
@@ -37,5 +37,5 @@ public class UC6 {
         //if(spelnaam= 8)  {
             
      //   }      
-    }
+    } /** Hier wordt de lokale versie van het spel (al dan niet met gespeelde beurten) opgeslaan in de externe databank voor verder gebruik.**/
 }

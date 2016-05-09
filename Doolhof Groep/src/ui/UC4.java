@@ -38,7 +38,7 @@ public class UC4 {
         this.app = app;
         this.taal = taal;
         
-    }
+    }/** Initialisatie van de Domeincontroller in UC4**/
     public void speelBeurt(int beurt)
     {   draaien = false;
         boolean oneven = false;
@@ -119,19 +119,19 @@ public class UC4 {
          
          
         
-    }
+    } /** Deze methode vraagt de speler waar hij zijn kaart wil inschuiven, en schuift dit ook in, samen met de bijhorende controlemethodes.**/
     
     public void draaiGangkaart(Gangkaart losseGangkaart){
         System.out.println("Hoe moet de gangkaart gedraaid worden?");
          int draaihoek = scanner.nextInt();
         losseGangkaart.setDraaihoek(draaihoek);
         System.out.println(losseGangkaart.toString()+ " met draaihoek" + losseGangkaart.getDraaihoek());
-    }
+    } /** Deze methode vraagt of de speler de gangkaart wil draaien vooraleer hij hem gaat invoegen.**/
     public void voegGangkaartIn(Gangkaart losseGangkaart, int x , int y){
         
             
              dc.schuifGangkaartIn(losseGangkaart,x, y);
               
         
-    }
+    } /** Deze methode voegt de al gedraaide gangkaart dan effectief in het bord in**/
 }

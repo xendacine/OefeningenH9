@@ -32,9 +32,9 @@ public class UC5 {
         this.app = app;
         this.taal = taal;
         
-    }
+    }/** Initialisatie van de Domeincontroller in UC5**/
     public void speelBeurt(int huidigeSpeler)
     {
         
-    }
+    }/** hier komt het vervolg op de huidige speler en zijn te spelen beurt **/
 }
