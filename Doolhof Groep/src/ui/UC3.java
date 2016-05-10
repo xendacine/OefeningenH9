@@ -39,22 +39,26 @@ public class UC3 {
     public void speelSpel(int beurt){
            beurt1 = beurt;
           app.uc4.speelBeurt(beurt1);
-          System.out.println("beurt gespeeld");
+          System.out.println(taal.getTekst().getString("beurt1Done"));
+//          System.out.println("beurt gespeeld");
           Speler huidigeSpeler = dc.bepaalSpelerAanBeurt(beurt);
           if(huidigeSpeler.getDoelkaarten().isEmpty()){
-              System.out.println("De winnaar is : "+ huidigeSpeler.getSpelernaam());
+              System.out.println(taal.getTekst().getString("eindeSpel1")+huidigeSpeler.getSpelernaam());
+//              System.out.println("De winnaar is : "+ huidigeSpeler.getSpelernaam());
           }
           else{
           beurt1++;
           
           dc.bepaalSpelerAanBeurt(beurt1);
-          System.out.println("Wilt u het spel bewaren?");
+          System.out.println(taal.getTekst().getString("wilBewaren"));
+//          System.out.println("Wilt u het spel bewaren?");
           String antw= scanner.next();
            if("ja".equals(antw) || "yes".equals(antw) || "oui".equals(antw)){
               app.uc6.bewaarSpel();
           }
           else{
-              System.out.println("De volgende speler is: "+dc.geefHuidigeSpeler(beurt1));
+               System.out.println(taal.getTekst().getString("volgendeSpelerIs")+dc.geefHuidigeSpeler(beurt1));
+//              System.out.println("De volgende speler is: "+dc.geefHuidigeSpeler(beurt1));
               speelSpel(beurt1); 
           }
           }

@@ -52,61 +52,73 @@ public class UC4 {
          }
         bord = dc.toonSpelbord();
         app.uc2.maakSpelBord(bord);
-        System.out.println("De losse gangkaart : " + losseGangkaart.toString());
+        System.out.println(taal.getTekst().getString("losseKaartIs")+losseGangkaart.toString());
+//        System.out.println("De losse gangkaart : " + losseGangkaart.toString());
          while(!oneven){
-        System.out.println("De te zoeken schat:"+dc.bepaalSpelerAanBeurt(beurt).getDoelkaarten().get(0).toString());
-        System.out.println("Waar wilt u de losse gangkaart in voegen?(links(l), rechts(r),onder(o) of boven(b)");
+             System.out.println(taal.getTekst().getString("teZoekenSchat")+dc.bepaalSpelerAanBeurt(beurt).getDoelkaarten().get(0).toString());
+//        System.out.println("De te zoeken schat:"+dc.bepaalSpelerAanBeurt(beurt).getDoelkaarten().get(0).toString());
+             System.out.println(taal.getTekst().getString("waarInvoegen"));
+//        System.out.println("Waar wilt u de losse gangkaart in voegen?(links(l), rechts(r),onder(o) of boven(b)");
         String input = scanner.next();
        
         if("l".equals(input)|| "g".equals(input)){
                     y = 0;
-                    System.out.println("In welke rij wenst u in te schuiven?");
+                    System.out.println(taal.getTekst().getString("welkeRij"));
+//                    System.out.println("In welke rij wenst u in te schuiven?");
                     x = scanner.nextInt();
                     if(x %2 != 0){
                         oneven = true;
                     }
                      else{
-                      System.out.println("Gelieve een geldige rij in te geven!");
+                        System.out.println(taal.getTekst().getString("geldigeRij"));
+//                      System.out.println("Gelieve een geldige rij in te geven!");
                   }
                     
          }
         if("r".equals(input)|| "d".equals(input)){
                    y = 6;
-                   System.out.println("In welke rij wenst u in te schuiven?");
+                   System.out.println(taal.getTekst().getString("welkeRij"));
+//                   System.out.println("In welke rij wenst u in te schuiven?");
                     x = scanner.nextInt();
                     if(x %2 != 0){
                         oneven = true;
                     }
                      else{
-                      System.out.println("Gelieve een geldige rij in te geven!");
+                        System.out.println(taal.getTekst().getString("geldigeRij"));
+//                      System.out.println("Gelieve een geldige rij in te geven!");
                   }
         }
         
         if("o".equals(input)|| "u".equals(input) || "s".equals(input)){
                   x = 6;
-                  System.out.println("In welke kolom wenst u in te schuiven?");
+                  System.out.println(taal.getTekst().getString("welkeKolom"));
+//                  System.out.println("In welke kolom wenst u in te schuiven?");
                   y = scanner.nextInt();
                    if(y %2 != 0){
                         oneven = true;
                     }
                     else{
-                      System.out.println("Gelieve een geldige kolom in te geven!");
+                       System.out.println(taal.getTekst().getString("geldigeKolom"));
+//                      System.out.println("Gelieve een geldige kolom in te geven!");
                   }
         }
         if("b".equals(input)||"d".equals(input)||"t".equals(input)) {
                  x = 0;
-                 System.out.println("In welke kolom wenst u in te schuiven?");
+                 System.out.println(taal.getTekst().getString("welkeKolom"));
+//                 System.out.println("In welke kolom wenst u in te schuiven?");
                  y = scanner.nextInt();
                   if(y %2 != 0){
                         oneven = true;
                     }
                   else{
-                      System.out.println("Gelieve een geldige kolom in te geven!");
+                      System.out.println(taal.getTekst().getString("geldigeKolom"));
+//                      System.out.println("Gelieve een geldige kolom in te geven!");
                   }
         }
         }
          while(!draaien){
-         System.out.println("Wenst u de gangkaart te draaien?(y/n)");
+             System.out.println(taal.getTekst().getString("wenstDraaiB"));
+//         System.out.println("Wenst u de gangkaart te draaien?(y/n)");
          String input1 = scanner.next();
          if("y".equals(input1)){
          draaiGangkaart(losseGangkaart);
@@ -122,9 +134,11 @@ public class UC4 {
     } /** Deze methode vraagt de speler waar hij zijn kaart wil inschuiven, en schuift dit ook in, samen met de bijhorende controlemethodes.**/
     
     public void draaiGangkaart(Gangkaart losseGangkaart){
-        System.out.println("Hoe moet de gangkaart gedraaid worden?");
+        System.out.println(taal.getTekst().getString("hoeDraai"));
+//        System.out.println("Hoe moet de gangkaart gedraaid worden?");
          int draaihoek = scanner.nextInt();
         losseGangkaart.setDraaihoek(draaihoek);
+        System.out.println(losseGangkaart.toString()+ " "+ taal.getTekst().getString("metHoek") + losseGangkaart.getDraaihoek());
         System.out.println(losseGangkaart.toString()+ " met draaihoek" + losseGangkaart.getDraaihoek());
     } /** Deze methode vraagt of de speler de gangkaart wil draaien vooraleer hij hem gaat invoegen.**/
     public void voegGangkaartIn(Gangkaart losseGangkaart, int x , int y){

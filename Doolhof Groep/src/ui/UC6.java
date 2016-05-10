@@ -32,7 +32,8 @@ public class UC6 {
     }/** Initialisatie van de Domeincontroller in UC6**/
     
     public void bewaarSpel(){
-        System.out.println("Geef een naam voor het spel:");
+        System.out.println(taal.getTekst().getString("geefNaamSpel"));
+//        System.out.println("Geef een naam voor het spel:");
          String spelnaam = scanner.next();
         //if(spelnaam= 8)  {
             
